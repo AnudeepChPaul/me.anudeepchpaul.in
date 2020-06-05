@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800&family=Roboto+Mono:wght@100;300;400;500;700&display=swap');
+
+
+$main-dark-color: #2b2f39;
+$contrast-color: #00d646;
+$font-dark-color: #b5b0a4;
+
+$main-darker-color: #1c2231;
+$contrast-darker-color: #F50057;
+$font-darker-color: #b5b0a4;
+
+$main-color: #6f7a8a;
+$font-color: #c3c4c5;
+$font-family-mono: 'Montserrat', sans-serif;
+$font-family-roboto-mono: 'Roboto Mono', monospace;
+
+$selected-main-color: $main-darker-color;
+$selected-contrast-color: $contrast-darker-color;
+$selected-font-color: $font-darker-color;
+
+$header-background-color: $selected-main-color;
+$header-font-color: $selected-font-color; // lighten($header-background-color, 30%);
+$header-font-contrast-color: $contrast-darker-color;
+
+$body-font-color: $selected-font-color;
+$body-background-color: lighten($selected-main-color, 0.3%);
+
+.global_main_class {
+  font-family: $font-family-mono;
+  font-size: 16px;
+  color: $body-font-color;
+  height: 100vh;
+}
