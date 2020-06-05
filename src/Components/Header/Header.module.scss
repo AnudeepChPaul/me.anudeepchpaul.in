@@ -58,6 +58,7 @@ $total-header-height: 2em;
         }
 
         .header_link {
+          @extend .scale-up-hor-center;
           background-color: transparent;
           border: none;
           outline: none;

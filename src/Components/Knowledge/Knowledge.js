@@ -6,12 +6,26 @@ import KnowledgeBar from "./KnowledgeBar/KnowledgeBar";
 import classes from "@/Components/Knowledge/Knowledge.module.scss";
 
 class Knowledge extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: false,
+    };
+  }
+
   componentDidMount() {
-    this.props.fetchPersonalData();
+    this.props.fetchPersonalData().then(() => {
+      this.setState({
+        visible: true,
+      });
+    });
   }
 
   render() {
-    debugger;
+    if (!this.state.visible) {
+      return <div className={classes.knowledge_component_container}></div>;
+    }
     return (
       <div className={classes.knowledge_component_container}>
         <div className={classes.knowledge_component_body}>
@@ -20,7 +34,9 @@ class Knowledge extends React.Component {
           </div>
           <div className={classes.knowledge_info}>
             {this.props.skills &&
-              this.props.skills.list.map((skill) => <KnowledgeBar {...skill} key={skill.actionKey}/>)}
+              this.props.skills.list.map((skill) => (
+                <KnowledgeBar {...skill} key={skill.actionKey} />
+              ))}
           </div>
         </div>
       </div>

@@ -28,6 +28,7 @@
       text-transform: uppercase;
       place-content: center;
       line-height: 1em;
+      @extend .fade-in-fwd;
 
       div {
         margin: auto;

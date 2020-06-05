@@ -5,7 +5,27 @@ import { fetchAppData } from "@/Redux/actions/App.action";
 import classes from "@/Components/Me/Me.module.scss";
 
 class Me extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: false,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        visible: true,
+      });
+    }, 200);
+  }
+
   render() {
+    if (!this.state.visible) {
+      return <div className={classes.me_component_container}></div>;
+    }
+
     return (
       <div className={classes.me_component_container}>
         <div className={classes.me_component_body}>

@@ -106,4 +106,4 @@ dist
 # next js build folder
 .build
 
-.yarn.lock
+yarn.lock

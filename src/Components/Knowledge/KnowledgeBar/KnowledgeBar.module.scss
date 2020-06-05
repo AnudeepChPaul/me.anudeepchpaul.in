@@ -15,12 +15,14 @@
     width: 5em;
     height: 100%;
     margin-right: 2em;
+    @extend .fade-in-fwd;
   }
   .knowledge_bar_component_indicator {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     height: 100%;
+    @extend .scale-in-hor-left;
 
     .knowledge_bar_component_indicator_bar {
       height: 100%;

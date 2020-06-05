@@ -25,9 +25,11 @@
       .me_component_title {
         font-size: 4.5em;
         font-family: $font-family-mono;
+        @extend .fade-in-fwd;
       }
 
       .me_component_sub_title {
+        @extend .scale-up-hor-center;
         font-family: $font-family-roboto-mono;
         // color: $header-font-contrast-color;
         font-size: 1.4em;
