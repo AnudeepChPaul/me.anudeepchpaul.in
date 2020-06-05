@@ -12,7 +12,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
         {/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800&family=Roboto+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet"/> */}
-          <style jsx>{`
+          <style>{`
                 body{
                     margin: 0px;
                 }
