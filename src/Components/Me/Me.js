@@ -55,7 +55,7 @@ class Me extends React.Component {
             </div>
           </div>
           <div className={classes.me_component_icon_wrapper}>
-            <div className={classes.me_component_icon}></div>
+            {/* <div className={classes.me_component_icon}></div> */}
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ $font-darker-color: #b5b0a4;
 $main-color: #6f7a8a;
 $font-color: #c3c4c5;
 $font-family-mono: 'Montserrat', sans-serif;
-$font-family-roboto-mono: 'Roboto Mono', monospace;
+$font-family-roboto-mono: 'Roboto Mono', sans-serif;
 
 $selected-main-color: $main-darker-color;
 $selected-contrast-color: $contrast-darker-color;
@@ -30,4 +30,5 @@ $body-background-color: lighten($selected-main-color, 0.3%);
   font-size: 16px;
   color: $body-font-color;
   height: 100vh;
+  background-color: $body-background-color;
 }

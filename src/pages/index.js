@@ -3,35 +3,26 @@ import React from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
+import Knowledge from "@/Components/Knowledge/Knowledge";
 
 class Home extends React.Component {
   render() {
     return (
       <main className="container">
         <Me></Me>
-        {/* <style jsx></style> */}
+        <Knowledge></Knowledge>
       </main>
     );
   }
 }
 
 export const getStaticProps = wrapper.getServerSideProps(async (ctx) => {
-  console.log("~~~~~~", ctx);
   const application = await ctx.store.dispatch(fetchAppData());
-  // const
   return {
-    props: {},
+    props: {
+      ...application
+    },
   };
 });
 
-const mapStateToProps = (state) => {
-  return {
-    ...state.application,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  loadAppPref: () => dispatch(fetchAppData()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect()(Home);

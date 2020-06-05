@@ -1,0 +1,43 @@
+@import "@/pages/app.scss";
+
+.knowledge_bar_component_container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: $body-background-color;
+  color: $body-font-color;
+  height: 1em;
+  margin-top: 2em;
+  line-height: 1em;
+  width: 100%;
+  font-size: 0.85em;
+
+  .knowledge_bar_component_header {
+    width: 5em;
+    height: 100%;
+    margin-right: 2em;
+  }
+  .knowledge_bar_component_indicator {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    height: 100%;
+
+    .knowledge_bar_component_indicator_bar {
+      height: 100%;
+      background-color: $selected-contrast-color;
+      border-radius: 0.15em;
+
+      &::after {
+        content: "";
+        float: right;
+        line-height: 1em;
+        font-weight: 900;
+      }
+    }
+    .knowledge_bar_component_indicator_value {
+      height: 100%;
+      width: 3em;
+      margin-left: 0.5em;
+    }
+  }
+}
