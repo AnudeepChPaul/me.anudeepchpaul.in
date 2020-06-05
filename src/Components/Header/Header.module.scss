@@ -9,7 +9,6 @@ $total-header-height: 2em;
   width: 100%;
   font-size: 0.8em;
   font-family: $font-family-mono;
-  // border-bottom: 2px solid $header-font-color;
 
   .header_body_container {
     display: flex;
@@ -17,8 +16,6 @@ $total-header-height: 2em;
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    // box-shadow: 0 0 5px 5px $header-background-color;
-
 
     .brand_container {
       flex: 1 50%;

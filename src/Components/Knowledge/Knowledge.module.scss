@@ -13,10 +13,11 @@
   .knowledge_component_body {
     display: grid;
     grid-template-columns: auto 600px auto;
-    grid-template-rows: 4em auto;
+    grid-template-rows: 4em 2em auto;
     grid-template-areas:
-      "knowledge-info-header knowledge-info-header knowledge-info-header"
-      ". knowledge-info .";
+        "knowledge-info-header knowledge-info-header knowledge-info-header"
+        ". . ."
+        ". knowledge-info .";
     height: 100%;
     justify-items: stretch;
 

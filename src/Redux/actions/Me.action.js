@@ -12,24 +12,44 @@ const getData = () =>
           skills: {
             list: [
               {
-                text: "HTML5",
+                text: "Python",
                 value: `${(Math.random() * 100).toFixed(0)}`,
-                actionKey: "html",
+                actionKey: "python",
               },
               {
-                text: "CSS3",
+                text: "Html & Css",
                 value: `${(Math.random() * 100).toFixed(0)}`,
-                actionKey: "css3",
+                actionKey: "html_and_css",
               },
+              // {
+              //   text: "Css3",
+              //   value: `${(Math.random() * 100).toFixed(0)}`,
+              //   actionKey: "css3",
+              // },
               {
                 text: "Javascript",
                 value: `${(Math.random() * 100).toFixed(0)}`,
                 actionKey: "javascript",
               },
               {
+                text: "Flask",
+                value: `${(Math.random() * 100).toFixed(0)}`,
+                actionKey: "flask",
+              },
+              {
                 text: "React",
                 value: `${(Math.random() * 100).toFixed(0)}`,
                 actionKey: "react",
+              },
+              {
+                text: "Node js",
+                value: `${(Math.random() * 100).toFixed(0)}`,
+                actionKey: "node",
+              },
+              {
+                text: "express",
+                value: `${(Math.random() * 100).toFixed(0)}`,
+                actionKey: "express",
               },
             ],
           },

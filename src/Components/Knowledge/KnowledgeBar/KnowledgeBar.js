@@ -25,7 +25,7 @@ class KnowledgeBar extends React.Component {
           ></div>
         </div>
         <div className={classes.knowledge_bar_component_indicator_value}>
-          {this.props.value}
+          {`${this.props.value}%`}
         </div>
         {/* </div> */}
       </div>

@@ -12,9 +12,10 @@
   font-size: 0.85em;
 
   .knowledge_bar_component_header {
-    width: 5em;
+    width: 6em;
     height: 100%;
-    margin-right: 2em;
+    margin-right: 1.5em;
+    text-align: right;
     @extend .fade-in-fwd;
   }
   .knowledge_bar_component_indicator {
@@ -36,10 +37,11 @@
         font-weight: 900;
       }
     }
-    .knowledge_bar_component_indicator_value {
-      height: 100%;
-      width: 3em;
-      margin-left: 0.5em;
-    }
+  }
+
+  .knowledge_bar_component_indicator_value {
+    height: 100%;
+    width: 2.5em;
+    margin-left: 1em;
   }
 }

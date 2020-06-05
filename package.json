@@ -26,6 +26,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.26.8"
+    "sass": "^1.26.8",
+    "styled-normalize": "^8.0.7"
   }
 }
