@@ -13,8 +13,9 @@ const getData = () =>
           header: {
             list: [
               { text: "About me", actionKey: "about_me" },
-              { text: "Knowledge", actionKey: "knowledge" },
+              { text: "Skills", actionKey: "skills" },
               { text: "Experience", actionKey: "experience" },
+              { text: "Package", actionKey: "pay_scale" },
               { text: "Contact", actionKey: "contact" }
             ],
           },
