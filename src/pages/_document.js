@@ -17,6 +17,7 @@ class MyDocument extends Document {
                     margin: 0px;
                 }
             `}</style>
+          <meta name="description" content="A portal to check on Anudeep Chandra Paul's resume and skills."/>
           <meta
             name="google-site-verification"
             content="6Sel5PCo0RnZeZQzzoRUOiQIjWreM5FXUSN-o-RWyao"
