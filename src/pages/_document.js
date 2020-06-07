@@ -9,7 +9,6 @@ class MyDocument extends Document {
           <style>{`
                 body{
                     margin: 0px;
-                    width: fit-content;
                 }
             `}</style>
           <meta
