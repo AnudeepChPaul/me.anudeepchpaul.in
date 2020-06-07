@@ -10,16 +10,16 @@ class Knowledge extends React.Component {
     super(props);
 
     this.state = {
-      visible: false,
+      visible: true,
     };
   }
 
   componentDidMount() {
-    this.props.fetchPersonalData().then(() => {
+    this.props.fetchPersonalData()/*.then(() => {
       this.setState({
         visible: true,
       });
-    });
+    });*/
   }
 
   render() {

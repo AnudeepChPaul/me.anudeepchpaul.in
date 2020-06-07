@@ -23,7 +23,6 @@ $total-header-height: 2em;
       .brand_logo {
         height: 5.5em;
         width: 5.5em;
-        background: url(/acp_gold_deep.png);
         background-position: center;
         background-size: contain;
         // margin: 0.3em 0 0.3em 0.3em;
@@ -64,6 +63,22 @@ $total-header-height: 2em;
           font-weight: 400;
           cursor: pointer;
           text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 376px) {
+  .header_wrapper {
+    header_body_container {
+      .nav_container {
+        margin: 0px;
+        .links_container {
+          .link_wrapper {
+          }
+
+          .header_link {
+          }
         }
       }
     }

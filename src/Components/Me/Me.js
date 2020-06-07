@@ -9,16 +9,16 @@ class Me extends React.Component {
     super(props);
 
     this.state = {
-      visible: false,
+      visible: true,
     };
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.setState({
         visible: true,
       });
-    }, 200);
+    }, 200);*/
   }
 
   render() {
