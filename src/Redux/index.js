@@ -8,14 +8,15 @@ import { composeWithDevTools } from "redux-devtools-extension";
 export const initStore = () => {
   const store = createStore(
     rootReducer,
-    
+
     composeWithDevTools(
       applyMiddleware(
         thunk,
-        createLogger({
-          collapsed: true,
-          level: process.env.NODE_ENV === "production" ? "error" : "info",
-        })
+        process.env.NODE_ENV !== "production" &&
+          createLogger({
+            collapsed: true,
+            level: "info",
+          })
       )
     )
   );

@@ -61,7 +61,7 @@ class Header extends React.Component {
             <div className={classes.brand_container}>
               <div
                 className={classes.brand_logo}
-                style={{backgroundImage: 'url(/acp_gold_deep.png)'}}
+                style={{ backgroundImage: "url(/acp_gold_deep.png)" }}
                 onClick={(evt) => this.onHeaderClick()}
               ></div>
             </div>
