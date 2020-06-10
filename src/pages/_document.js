@@ -4,7 +4,7 @@ import Link from "next/link";
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <style>{`
                 body{
@@ -23,7 +23,8 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="6Sel5PCo0RnZeZQzzoRUOiQIjWreM5FXUSN-o-RWyao"
           />
-          <meta name="robots" content="all"/>
+          <meta name="robots" content="all" />
+          <link rel="manifest" href="/manifest.webmanifest"/>
         </Head>
         <body>
           <Main />
