@@ -12,12 +12,6 @@ const getData = async () => {
 
 export const fetchAppData = () => {
   return (dispatch) => {
-    // dispatch({
-    //   type: appState.APP_LOAD_PENDING,
-    //   payload: {
-    //     title: "LOADING",
-    //   },
-    // });
     return getData().then((data) => dispatch(data));
   };
 };

@@ -1,6 +1,4 @@
-console.log("service worker loaded");
-
-var CACHE_NAME = "resume_anudeepchpaul_in";
+var CACHE_NAME = "resume.anudeepchpaul.in";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -8,8 +6,22 @@ self.addEventListener("install", (event) => {
   );
 });
 
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((names) => {
+      return Promise.all(
+        names.map((names) => {
+          if ([CACHE_NAME].indexOf(names) === -1) {
+            return caches.delete(names);
+          }
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener("fetch", (event) => {
-  console.log("fetch sw", JSON.stringify(event));
+  event.request.url.indexOf("chrome-extension") === -1 && 
   event.respondWith(
     caches.match(event.request).then((resp) => {
       return (
