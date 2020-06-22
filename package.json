@@ -29,7 +29,8 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.26.8",
     "styled-components": "^5.1.1",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "unsplash-js": "^6.0.0"
   },
   "devDependencies": {
     "styled-jsx-plugin-sass": "^1.0.0"
