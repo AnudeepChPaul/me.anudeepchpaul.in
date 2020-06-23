@@ -3,7 +3,8 @@ import React from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
-import Knowledge from "@/Components/Knowledge/Knowledge";
+import Skills from "@/Components/Skills/Skills";
+import Experiences from "@/Components/Experiences/Experiences";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -14,7 +15,8 @@ class Home extends React.Component {
     return (
       <main className="container">
         <Me></Me>
-        <Knowledge></Knowledge>
+        <Skills></Skills>
+        {/* <Experiences></Experiences> */}
       </main>
     );
   }

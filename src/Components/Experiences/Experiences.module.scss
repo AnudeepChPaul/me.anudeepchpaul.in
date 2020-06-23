@@ -1,0 +1,46 @@
+@import "@/pages/app.scss";
+
+.experience_component_container {
+  display: block;
+  flex-wrap: nowrap;
+  background-color: $body-background-color;
+  color: $body-font-color;
+  height: 35em;
+  padding-top: 4.2em;
+  line-height: 1em;
+  width: 100%;
+
+  .experience_component_body {
+    display: grid;
+    grid-template-columns: auto 600px auto;
+    grid-template-rows: 4em 2em auto;
+    grid-template-areas:
+        "experience-info-header experience-info-header experience-info-header"
+        ". . ."
+        ". experience-info .";
+    height: 100%;
+    justify-items: stretch;
+    margin: 3em 0 0;
+
+    .experience_info_header {
+      display: grid;
+      grid-area: experience-info-header;
+      font-weight: 300;
+      font-size: 3em;
+      text-transform: uppercase;
+      place-content: center;
+      line-height: 1em;
+      @extend .fade-in-fwd;
+
+      div {
+        margin: auto;
+      }
+    }
+    .experience_info {
+      display: flex;
+      flex-wrap: wrap;
+      height: fit-content;
+      grid-area: experience-info;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @import "@/pages/app.scss";
 
-.knowledge_bar_component_container {
+.Experience_bar_component_container {
   display: flex;
   flex-wrap: nowrap;
   background-color: $body-background-color;
@@ -11,21 +11,21 @@
   width: 100%;
   font-size: 0.85em;
 
-  .knowledge_bar_component_header {
+  .Experience_bar_component_header {
     width: 6em;
     height: 100%;
     margin-right: 1.5em;
     text-align: right;
     @extend .fade-in-fwd;
   }
-  .knowledge_bar_component_indicator {
+  .Experience_bar_component_indicator {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     height: 100%;
     @extend .scale-in-hor-left;
 
-    .knowledge_bar_component_indicator_bar {
+    .Experience_bar_component_indicator_bar {
       height: 100%;
       background-color: $selected-contrast-color;
       border-radius: 0.15em;
@@ -39,7 +39,7 @@
     }
   }
 
-  .knowledge_bar_component_indicator_value {
+  .Experience_bar_component_indicator_value {
     height: 100%;
     width: 2.5em;
     margin-left: 1em;

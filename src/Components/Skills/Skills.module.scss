@@ -1,6 +1,6 @@
 @import "@/pages/app.scss";
 
-.knowledge_component_container {
+.Skills_component_container {
   display: block;
   flex-wrap: nowrap;
   background-color: $body-background-color;
@@ -10,21 +10,21 @@
   line-height: 1em;
   width: 100%;
 
-  .knowledge_component_body {
+  .Skills_component_body {
     display: grid;
     grid-template-columns: auto 600px auto;
     grid-template-rows: 4em 2em auto;
     grid-template-areas:
-        "knowledge-info-header knowledge-info-header knowledge-info-header"
+        "Skills-info-header Skills-info-header Skills-info-header"
         ". . ."
-        ". knowledge-info .";
+        ". Skills-info .";
     height: 100%;
     justify-items: stretch;
     margin: 3em 0 0;
 
-    .knowledge_info_header {
+    .Skills_info_header {
       display: grid;
-      grid-area: knowledge-info-header;
+      grid-area: Skills-info-header;
       font-weight: 300;
       font-size: 3em;
       text-transform: uppercase;
@@ -36,11 +36,11 @@
         margin: auto;
       }
     }
-    .knowledge_info {
+    .Skills_info {
       display: flex;
       flex-wrap: wrap;
       height: fit-content;
-      grid-area: knowledge-info;
+      grid-area: Skills-info;
     }
   }
 }
