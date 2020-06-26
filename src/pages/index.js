@@ -19,7 +19,6 @@ class Home extends React.Component {
     this.state = {
       fabButton: {
         show: false,
-        text: "Goto Top",
       },
     };
   }

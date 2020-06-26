@@ -24,7 +24,7 @@ $header_height: 4rem;
   font-family: $font-family-mono;
   font-size: 16px;
   color: $body-font-color;
-  height: 100vh;
+  height: auto;
   background-color: $body-background-color;
   scroll-behavior: smooth;
   text-rendering: geometricPrecision;
@@ -40,6 +40,7 @@ $header_height: 4rem;
 
 
 @media only screen and (max-width: 800px) {
+  $actual_viewable_width: 40rem;
   .global_main_class {
     width: fit-content;
   }
