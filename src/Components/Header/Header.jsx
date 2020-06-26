@@ -37,11 +37,11 @@ class Header extends React.Component {
     return (
       list &&
       list.map((button) => (
-        <li key={button.actionKey} className={classes.link_wrapper} aria-labelledby={button.actionKey}>
+        <li key={button.linkId} className={classes.link_wrapper} aria-labelledby={button.linkId}>
           <button
             className={classes.header_link}
             onClick={(evt) => this.onButtonClick(evt)}
-            aria-labelledby={button.actionKey}
+            aria-labelledby={button.linkId}
           >
             {button.text}
           </button>
@@ -54,7 +54,7 @@ class Header extends React.Component {
     return (
       <>
         <Head>
-          <title>{this.props.title || ""}</title>
+          <title>{this.props.title.title || ""}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <header className={classes.header_wrapper}>

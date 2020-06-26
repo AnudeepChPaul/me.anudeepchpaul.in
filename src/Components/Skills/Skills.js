@@ -35,7 +35,7 @@ class Skills extends React.Component {
           <div className={classes.Skills_info}>
             {this.props.skills &&
               this.props.skills.list.map((skill) => (
-                <SkillsBar {...skill} key={skill.actionKey} />
+                <SkillsBar {...skill} key={skill.skillId} />
               ))}
           </div>
         </div>
