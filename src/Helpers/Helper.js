@@ -1,6 +1,6 @@
 export const convertDate = (date) => {
   if (date === "current") {
-    date = Date.now();
+    return 'Current'
   }
 
   const convDate = new Date(date);
