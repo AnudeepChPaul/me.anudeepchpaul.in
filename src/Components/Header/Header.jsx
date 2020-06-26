@@ -29,16 +29,19 @@ class Header extends React.Component {
     this.setState({
       lastClicked: evt.target.parentElement,
     });
+
+    this.props.scrollToRefs(evt);
   }
 
   getListOfLinks(list) {
     return (
       list &&
       list.map((button) => (
-        <li key={button.actionKey} className={classes.link_wrapper}>
+        <li key={button.actionKey} className={classes.link_wrapper} aria-labelledby={button.actionKey}>
           <button
             className={classes.header_link}
             onClick={(evt) => this.onButtonClick(evt)}
+            aria-labelledby={button.actionKey}
           >
             {button.text}
           </button>

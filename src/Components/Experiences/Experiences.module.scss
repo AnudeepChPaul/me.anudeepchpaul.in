@@ -1,23 +1,30 @@
 @import "@/pages/app.scss";
 
+$experience_block_width: 22rem;
+$experience_block_line_width: 1rem;
+$experience_info_col_gap: 2rem;
+
+$experience_info_full_width: 2 * $experience_block_width + $experience_block_line_width + 2 * $experience_info_col_gap;
+
+
 .experience_component_container {
   display: block;
   flex-wrap: nowrap;
   background-color: $body-background-color;
   color: $body-font-color;
-  height: 35em;
-  padding-top: 4.2em;
-  line-height: 1em;
+  /* height: 35rem; */
+  padding-top: 4.2rem;
+  line-height: 1rem;
   width: 100%;
 
   .experience_component_body {
     display: grid;
-    grid-template-columns: auto 600px auto;
-    grid-template-rows: 4em 2em auto;
+    grid-template-columns: auto $experience_info_full_width auto;
+    grid-template-rows: $header_height $header_content_gap auto;
     grid-template-areas:
-        "experience-info-header experience-info-header experience-info-header"
-        ". . ."
-        ". experience-info .";
+      "experience-info-header experience-info-header experience-info-header"
+      ". . ."
+      ". experience-info .";
     height: 100%;
     justify-items: stretch;
     margin: 3em 0 0;
@@ -26,21 +33,60 @@
       display: grid;
       grid-area: experience-info-header;
       font-weight: 300;
-      font-size: 3em;
+      font-size: 3rem;
       text-transform: uppercase;
       place-content: center;
-      line-height: 1em;
+      line-height: 1rem;
       @extend .fade-in-fwd;
 
       div {
         margin: auto;
       }
     }
-    .experience_info {
-      display: flex;
-      flex-wrap: wrap;
+
+    .experience_info_wrapper {
+      display: block;
       height: fit-content;
       grid-area: experience-info;
+      overflow: hidden;
+    }
+
+    .experience_info {
+      display: grid;
+      grid-template-columns: $experience_block_width $experience_block_line_width $experience_block_width;
+      column-gap: $experience_info_col_gap;
+      grid-template-rows: auto;
+      grid-template-areas: "experience-block-left experience-middle-bar experience-block-right";
+    }
+
+    .experience_vertical_line {
+      display: block;
+      height: 15rem;
+      grid-area: experience-middle-bar;
+      place-self: center;
+      @extend .slide-in-top;
+    }
+    .experience_vertical_line_line {
+      background-color: $selected-contrast-color;
+      height: 100%;
+      width: 0.1rem;
+      margin: auto;
+    }
+    .experience_vertical_line_top_bar {
+      height: $experience_block_line_width;
+      width: $experience_block_line_width;
+      background-color: $selected-contrast-color;
+      border-radius: 50%;
+    }
+    .experience_blocks_left {
+      display: flex;
+      grid-area: experience-block-left;
+      flex-direction: row-reverse;
+    }
+
+    .experience_blocks_right {
+      display: flex;
+      grid-area: experience-block-right;
     }
   }
 }

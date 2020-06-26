@@ -1,0 +1,31 @@
+@import "@/pages/app.scss";
+
+.fab-button-wrapper {
+  height: 3rem;
+  width: 3rem;
+  position: fixed;
+  bottom: 9rem;
+  right: 3rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  @extend .fade-in-fwd;
+
+  .fab-button-body {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: none;
+    background-color: $selected-font-color;
+    color: $selected-main-color;
+    /* box-shadow: 0 0 2px 2px $selected-contrast-color; */
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.fab-button-hidden {
+    display: none;
+  }
+}

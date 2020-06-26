@@ -16,6 +16,10 @@ $header-font-contrast-color: $selected-contrast-color;
 $body-font-color: $selected-font-color;
 $body-background-color: lighten($selected-main-color, 0.3%);
 
+$actual_viewable_width: 49rem;
+$header_content_gap: 5rem;
+$header_height: 4rem;
+
 .global_main_class {
   font-family: $font-family-mono;
   font-size: 16px;
@@ -25,6 +29,7 @@ $body-background-color: lighten($selected-main-color, 0.3%);
   scroll-behavior: smooth;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
 }
 
 // body {
@@ -32,3 +37,10 @@ $body-background-color: lighten($selected-main-color, 0.3%);
 //   text-rendering: geometricPrecision;
 //   -webkit-font-smoothing: antialiased;
 // }
+
+
+@media only screen and (max-width: 800px) {
+  .global_main_class {
+    width: fit-content;
+  }
+}

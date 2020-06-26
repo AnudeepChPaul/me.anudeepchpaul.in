@@ -12,8 +12,8 @@
 
   .Skills_component_body {
     display: grid;
-    grid-template-columns: auto 600px auto;
-    grid-template-rows: 4em 2em auto;
+    grid-template-columns: auto $actual_viewable_width auto;
+    grid-template-rows: $header_height $header_content_gap auto;
     grid-template-areas:
         "Skills-info-header Skills-info-header Skills-info-header"
         ". . ."
