@@ -1,6 +1,6 @@
 import classes from "./GotoTop.module.scss";
 import React from "react";
-import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FabButton = function (props) {
@@ -14,7 +14,7 @@ const FabButton = function (props) {
   return (
     <div className={classNames.join(" ")}>
       <button className={classes["fab-button-body"]} onClick={props.onClick}>
-        <FontAwesomeIcon icon={faArrowCircleUp} />
+        <FontAwesomeIcon icon={faAngleUp} />
       </button>
     </div>
   );
