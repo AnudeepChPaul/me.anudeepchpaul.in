@@ -18,3 +18,9 @@ export const fetchSkills = () => {
     return fetchSkillsData().then((data) => dispatch(data));
   };
 };
+
+export const fetchSkillsDataFromSW = (data) => {
+  return (dispatch) => {
+    return dispatch({ type: skillsState.SKILLS_DATA_LOAD_FINISHED, payload: data });
+  };
+};

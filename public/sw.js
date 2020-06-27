@@ -1,4 +1,5 @@
-var CACHE_NAME = "resume.anudeepchpaul.in";
+var CACHE_NAME = "resume.anudeepchpaul.in",
+  corsRequests = [];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -11,9 +12,7 @@ self.addEventListener("activate", (event) => {
     caches.keys().then((names) => {
       return Promise.all(
         names.map((names) => {
-          if ([CACHE_NAME].indexOf(names) === -1) {
-            return caches.delete(names);
-          }
+          return caches.delete(names);
         })
       );
     })
@@ -21,18 +20,60 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  event.request.url.indexOf("chrome-extension") === -1 && 
+  if (event.request.url.indexOf("chrome-extension") !== -1) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((resp) => {
-      return (
-        resp ||
-        fetch(event.request).then((response) => {
-          return caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, response.clone());
-            return response;
-          });
-        })
-      );
+      if (
+        event.request.mode === "cors" &&
+        corsRequests.indexOf(event.request.url) === -1 &&
+        event.request.url.indexOf("resume/api") !== -1
+      ) {
+        corsRequests.push(event.request.url);
+      }
+
+      if (resp) return resp;
+
+      return fetch(event.request).then((response) => {
+        if (!response || response.status !== 200) {
+          return response;
+        }
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, response.clone());
+          return response;
+        });
+      });
     })
   );
+});
+
+function updateCache(event) {
+  return self.clients.matchAll().then((client) => {
+    corsRequests.forEach(function (requestUrl) {
+      fetch(requestUrl).then((response) => {
+        if (!response || response.status !== 200) {
+          return response;
+        }
+        const clonedResponse = response.clone();
+        return clonedResponse
+          .json()
+          .then((text) => {
+            client[0].postMessage(text);
+          })
+          .then(() => {
+            return caches.open(CACHE_NAME).then((cache) => {
+              cache.put(requestUrl, response.clone());
+            });
+          });
+      });
+    });
+  });
+}
+
+self.addEventListener("sync", (event) => {
+  if (event.tag == "cors") {
+    event.waitUntil(updateCache(event));
+  }
 });

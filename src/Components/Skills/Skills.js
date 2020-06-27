@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
 import { wrapper } from "@/Redux";
-import { fetchSkills } from "@/Redux/actions/Skills.action";
+import { fetchSkills, fetchSkillsDataFromSW } from "@/Redux/actions/Skills.action";
 import SkillsBar from "./SkillsBar/SkillsBar";
 import classes from "@/Components/Skills/Skills.module.scss";
+import Helper from "@/Helpers/Helper";
 
 class Skills extends React.Component {
   constructor(props) {
@@ -15,11 +16,13 @@ class Skills extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSkills()/*.then(() => {
-      this.setState({
-        visible: true,
+    this.props.fetchSkills();
+
+    setTimeout(() => {
+      Helper.subscribeToSW((event) => {
+        event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
       });
-    });*/
+    }, 2000);
   }
 
   render() {
@@ -53,6 +56,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSkills: () => dispatch(fetchSkills()),
+  fetchSkillsDataFromSW: (data) => dispatch(fetchSkillsDataFromSW(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Skills);

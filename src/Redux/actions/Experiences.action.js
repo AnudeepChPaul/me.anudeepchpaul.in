@@ -19,3 +19,9 @@ export const fetchExperiences = () => {
     return fetchExperienceData().then((data) => dispatch(data));
   };
 };
+
+export const fetchExperienceDataFromSW = (data) => {
+  return (dispatch) => {
+    return dispatch({ type: experienceStates.EXPERIENCE_DATA_LOAD_FINISHED, payload: data });
+  };
+};

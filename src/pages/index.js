@@ -8,6 +8,8 @@ import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
 import FabButton from "@/Components/Button/FabButton/GotoTop";
+import { fetchSkillsDataFromSW } from "@/Redux/actions/Skills.action";
+import Helper from "@/Helpers/Helper";
 
 class Home extends React.Component {
   constructor(props) {
@@ -63,9 +65,9 @@ class Home extends React.Component {
           />
         </main>
         <div
-            ref={(node) => (this.footerRef = node)}
-            className="experience_container"
-          >
+          ref={(node) => (this.footerRef = node)}
+          className="experience_container"
+        >
           <Footer />
         </div>
       </>
@@ -105,11 +107,7 @@ class Home extends React.Component {
       })
       .finally(() => {
         navigator.serviceWorker.register("sw.js");
-
-        navigator.serviceWorker.ready.then((swRegistration) => {
-          console.log(swRegistration)
-          return swRegistration.sync.register('skills');
-        });
+        Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
       });
   }
 

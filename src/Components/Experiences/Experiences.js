@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import React from "react";
-import { fetchExperiences } from "@/Redux/actions/Experiences.action";
+import { fetchExperiences, fetchExperienceDataFromSW } from "@/Redux/actions/Experiences.action";
 import classes from "@/Components/Experiences/Experiences.module.scss";
 import ExperienceTimelineBlock from "./ExperienceTimelineBlock/ExperienceTimelineBlock";
-import { getExperiences } from "@/Api/Resume.api";
+import Helper from "@/Helpers/Helper";
 
 class Experiences extends React.Component {
   constructor(props) {
@@ -16,6 +16,12 @@ class Experiences extends React.Component {
 
   componentDidMount() {
     this.props.fetchExperiences();
+
+    setTimeout(() => {
+      Helper.subscribeToSW((event) => {
+        event.data.experiences && this.props.fetchExperienceDataFromSW(event.data);
+      });
+    }, 2000);
   }
 
   getExperienceBlocks() {
@@ -75,6 +81,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchExperiences: () => dispatch(fetchExperiences()),
+  fetchExperienceDataFromSW: (data) => dispatch(fetchExperienceDataFromSW(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experiences);

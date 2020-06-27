@@ -3,7 +3,7 @@ import React from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import classes from "./ExperienceTimelineBlock.module.scss";
-import { convertDate } from "@/Helpers/Helper";
+import Helper from "@/Helpers/Helper";
 
 const ExperienceTimeline = function (props) {
   const classNames = [classes.experiences_timeline_block_wrapper];
@@ -15,7 +15,7 @@ const ExperienceTimeline = function (props) {
   return (
     <div className={classNames.join(" ")}>
       <h4 className={classes.experiences_timeline_header}>{
-      `${convertDate(from)} to ${convertDate(to)}`}</h4>
+      `${Helper.convertDate(from)} to ${Helper.convertDate(to)}`}</h4>
       <h5 className={classes.experiences_timeline_sub_header}>
         {props.companyName}
       </h5>

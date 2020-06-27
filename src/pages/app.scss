@@ -15,7 +15,7 @@ $header-font-color: $selected-font-color;
 $header-font-contrast-color: $selected-contrast-color;
 
 $body-font-color: $selected-font-color;
-$body-background-color: lighten($selected-main-color, 0.3%);
+$body-background-color: $selected-main-color;
 
 $header_content_gap: 5rem;
 $header_height: 4rem;
