@@ -62,13 +62,18 @@ class Home extends React.Component {
             hide={!this.state.fabButton.show}
           />
         </main>
-        <Footer />
+        <div
+            ref={(node) => (this.footerRef = node)}
+            className="experience_container"
+          >
+          <Footer />
+        </div>
       </>
     );
   }
 
   scrollToRefs(evt) {
-    const attr = evt.target.getAttribute("aria-labelledby");
+    const attr = evt.target.getAttribute("aria-label");
 
     if (!attr) return this.headerRef.scrollIntoView({ behavior: "smooth" });
 
@@ -81,6 +86,9 @@ class Home extends React.Component {
         break;
       case "experience":
         this.experiencesRef.scrollIntoView({ behavior: "smooth" });
+        break;
+      case "contact":
+        this.footerRef.scrollIntoView({ behavior: "smooth" });
         break;
     }
   }
@@ -97,6 +105,11 @@ class Home extends React.Component {
       })
       .finally(() => {
         navigator.serviceWorker.register("sw.js");
+
+        navigator.serviceWorker.ready.then((swRegistration) => {
+          console.log(swRegistration)
+          return swRegistration.sync.register('skills');
+        });
       });
   }
 

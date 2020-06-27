@@ -22,13 +22,13 @@ class Header extends React.Component {
   }
 
   onButtonClick(evt) {
-    this.state.lastClicked &&
+    /* this.state.lastClicked &&
       this.state.lastClicked.classList.remove(classes.selected);
 
     evt.target.parentElement.classList.add(classes.selected);
     this.setState({
       lastClicked: evt.target.parentElement,
-    });
+    }); */
 
     this.props.scrollToRefs(evt);
   }
@@ -37,11 +37,11 @@ class Header extends React.Component {
     return (
       list &&
       list.map((button) => (
-        <li key={button.linkId} className={classes.link_wrapper} aria-labelledby={button.linkId}>
+        <li key={button.linkId} className={classes.link_wrapper} aria-label={button.linkId}>
           <button
             className={classes.header_link}
             onClick={(evt) => this.onButtonClick(evt)}
-            aria-labelledby={button.linkId}
+            aria-label={button.linkId}
           >
             {button.text}
           </button>

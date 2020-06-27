@@ -2,6 +2,7 @@
 @import "./animations.scss";
 @import "@/Themes/Elegant.scss";
 
+$actual_viewable_width: 49rem;
 $font-family-mono: "Montserrat", sans-serif;
 $font-family-roboto-mono: "Roboto Mono", sans-serif;
 
@@ -16,7 +17,6 @@ $header-font-contrast-color: $selected-contrast-color;
 $body-font-color: $selected-font-color;
 $body-background-color: lighten($selected-main-color, 0.3%);
 
-$actual_viewable_width: 49rem;
 $header_content_gap: 5rem;
 $header_height: 4rem;
 
@@ -32,16 +32,8 @@ $header_height: 4rem;
   width: 100%;
 }
 
-// body {
-//   scroll-behavior: smooth;
-//   text-rendering: geometricPrecision;
-//   -webkit-font-smoothing: antialiased;
-// }
-
-
-@media only screen and (max-width: 800px) {
-  $actual_viewable_width: 40rem;
+@media only screen and (max-width: 900px) {
   .global_main_class {
-    width: fit-content;
+    /* width: fit-content; */
   }
 }

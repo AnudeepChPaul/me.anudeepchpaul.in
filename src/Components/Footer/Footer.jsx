@@ -1,24 +1,38 @@
-import { connect, useSelector } from "react-redux";
 import React from "react";
-import { fetchAppData } from "@/Redux/actions/App.action";
 import classes from "./Footer.module.scss";
-import { wrapper } from "@/Redux";
+import {
+  faReact,
+  faLinkedin,
+  faFacebook,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 class Footer extends React.Component {
   render() {
     return (
-      <>
+      <div className={classes.footer_wrapper}>
+        <div className={classes.feedback_panel}></div>
         <footer className={classes.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/vercel.svg" alt="Vercel Logo" className={classes.logo} />
-          </a>
+          <div className={classes.footer_buttons}>
+            <FontAwesomeIcon icon={faEnvelope} />
+          </div>
+          <div className={classes.footer_buttons}>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </div>
+          <div className={classes.footer_buttons}>
+            <FontAwesomeIcon icon={faFacebook} />
+          </div>
+          <div className={classes.footer_buttons}>
+            <FontAwesomeIcon icon={faTwitter} />
+          </div>
+          {/* <div className={classes.footer_buttons}>
+            <FontAwesomeIcon icon={faGithub} />
+          </div> */}
         </footer>
-      </>
+      </div>
     );
   }
 }

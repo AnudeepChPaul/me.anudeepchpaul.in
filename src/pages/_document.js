@@ -10,6 +10,9 @@ class MyDocument extends Document {
                 body{
                     margin: 0px;
                 }
+                :root {
+                  --actual_viewable_width: 54rem;
+                }
             `}</style>
           <meta
             name="description"

@@ -1,37 +1,46 @@
 @import "@/pages/app.scss";
 
+$footer-button-dim: 1.5rem;
+$footer-bar-height: 3rem;
+$feedback-panel-height: 0.1rem;
+
+.footer_wrapper {
+  width: 100%;
+  margin-top: 4.2rem;
+  /* padding: 3rem 0 0; */
+  height: $feedback-panel-height + $footer-bar-height;
+  border: none;
+  background-color: $selected-main-color;
+  color: $selected-font-color;
+}
+
 .footer {
   width: 100%;
-  height: 3em;
+  height: $footer-bar-height;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  // position: absolute;
-  // bottom: 0;
   font-weight: lighter;
   background-color: $header-background-color;
   color: $header-font-color;
 }
 
-.footer img {
-  margin-left: 0.5rem;
-}
-
-.footer a {
+.footer_buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: inherit;
-}
+  width: $footer-button-dim;
+  height: $footer-button-dim;
+  margin: 0 $footer-button-dim;
+  font-size: $footer-button-dim;
+  cursor: pointer;
 
-.logo {
-  height: 1em;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+  svg {
+    vertical-align: top;
+    margin: 0 auto;
   }
+}
+
+.feedback_panel {
+  height: $feedback-panel-height;
+  /* border-top: 2px solid $selected-contrast-color; */
 }
