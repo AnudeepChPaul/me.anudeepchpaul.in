@@ -1,4 +1,5 @@
 import { initializeAppData } from "@/Api/App.api";
+import unsplash, { toJson } from "@/Api/Unsplash.api";
 
 export const appState = {
   APP_LOAD_PENDING: "APP_LOAD_PENDING",
@@ -7,7 +8,9 @@ export const appState = {
 
 const getData = async () => {
   const data = await initializeAppData();
-  return { type: appState.APP_LOAD_FINISHED, payload: data };
+  const photos = await unsplash.search.photos("programming", 2);
+  const images = await photos.json();
+  return { type: appState.APP_LOAD_FINISHED, payload: { ...data, images } };
 };
 
 export const fetchAppData = () => {

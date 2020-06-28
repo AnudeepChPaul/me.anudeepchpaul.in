@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
 import { wrapper } from "@/Redux";
-import { fetchSkills, fetchSkillsDataFromSW } from "@/Redux/actions/Skills.action";
+import {
+  fetchSkills,
+  fetchSkillsDataFromSW,
+} from "@/Redux/actions/Skills.action";
 import SkillsBar from "./SkillsBar/SkillsBar";
 import classes from "@/Components/Skills/Skills.module.scss";
 import Helper from "@/Helpers/Helper";
@@ -30,10 +33,16 @@ class Skills extends React.Component {
       return <div className={classes.Skills_component_container}></div>;
     }
     return (
-      <div className={classes.Skills_component_container}>
+      <div
+        className={classes.Skills_component_container}
+        style={{
+          // backgroundImage: `url(${this.props.images.results[4].urls.full})`,
+          // backgroundImage: `url(${this.props.images.urls.full})`,
+        }}
+      >
         <div className={classes.Skills_component_body}>
           <div className={classes.Skills_info_header}>
-            <div>01 Professional Skills</div>
+            <div>Professional Skills</div>
           </div>
           <div className={classes.Skills_info}>
             {this.props.skills &&

@@ -62,7 +62,7 @@ class Experiences extends React.Component {
       <div className={classes.experience_component_container}>
         <div className={classes.experience_component_body}>
           <div className={classes.experience_info_header}>
-            <div>02 Experiences</div>
+            <div>Experience</div>
           </div>
           <div className={classes.experience_info_wrapper}>
             {this.getExperienceBlocks()}

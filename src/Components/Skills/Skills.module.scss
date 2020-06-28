@@ -5,10 +5,15 @@
   flex-wrap: nowrap;
   background-color: $body-background-color;
   color: $body-font-color;
-  height: 35em;
-  padding-top: 4.2em;
+  height: 50em;
+  padding-top: 5em;
   line-height: 1em;
   width: 100%;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .Skills_component_body {
