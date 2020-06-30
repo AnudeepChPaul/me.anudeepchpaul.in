@@ -122,7 +122,7 @@ class Experiences extends React.Component {
                 align="left"
                 className={this.props.classes.timelineListWrapper}
               >
-                {this.getProfessionalProjects()}
+                {/* {this.getProfessionalProjects()} */}
               </Timeline>
             </Grid>
           </Grid>
