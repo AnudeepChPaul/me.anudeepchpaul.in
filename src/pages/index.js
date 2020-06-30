@@ -101,11 +101,11 @@ class Home extends React.Component {
 
     navigator.serviceWorker.getRegistration().then((registration) => {
       return registration && registration.unregister();
-    });
-    /* .finally(() => {
+    })
+    .finally(() => {
       navigator.serviceWorker.register("sw.js");
       Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
-    }); */
+    });
   }
 
   onScroll() {
