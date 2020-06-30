@@ -1,15 +1,34 @@
 import { connect } from "react-redux";
-import React, { createRef } from "react";
+import React from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
+import ContactMe from "@/Components/ContactMe/ContactMe";
 import Skills from "@/Components/Skills/Skills";
 import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
-import Footer from "@/Components/Footer/Footer";
-import FabButton from "@/Components/Button/FabButton/GotoTop";
-import { fetchSkillsDataFromSW } from "@/Redux/actions/Skills.action";
-import Helper from "@/Helpers/Helper";
+import { Grid, Container, IconButton, ButtonGroup, withStyles, Drawer } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedin,
+  faLinkedinIn,
+  faFacebookF,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faInbox,
+  faMailBulk,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
+
+const styles = theme => ({
+  quickLinks: {
+    position: 'fixed',
+    right: 0,
+    top:0
+  }
+})
 
 class Home extends React.Component {
   constructor(props) {
@@ -32,45 +51,25 @@ class Home extends React.Component {
 
   render() {
     return (
-      <>
-        <div
-          ref={(node) => (this.headerRef = node)}
-          className="header_container"
-        >
-          <Header scrollToRefs={this.scrollToRefs} />
-        </div>
-        <main className="container">
-          <div
-            ref={(node) => (this.aboutRef = node)}
-            className="aboutme_container"
-          >
-            <Me></Me>
-          </div>
-          <div
-            ref={(node) => (this.skillsRef = node)}
-            className="skills_container"
-          >
-            <Skills></Skills>
-          </div>
-          <div
-            ref={(node) => (this.experiencesRef = node)}
-            className="experience_container"
-          >
-            <Experiences></Experiences>
-          </div>
-          <FabButton
-            onClick={this.scrollToRefs}
-            text={this.state.fabButton.text}
-            hide={!this.state.fabButton.show}
-          />
-        </main>
-        <div
-          ref={(node) => (this.footerRef = node)}
-          className="experience_container"
-        >
-          <Footer />
-        </div>
-      </>
+      <Header scrollToRefs={this.scrollToRefs}>
+        {/* <Container
+          disableGutters={false}
+          fixed={true}
+          style={{ padding: "2px" }}
+        > */}
+          <Grid container spacing={2}>
+            <Grid item xs={12} style={{ margin: "0 0 1px 0" }}>
+              <Skills></Skills>
+            </Grid>
+            <Grid item xs={12}>
+              <Experiences></Experiences>
+            </Grid>
+            <Grid item xs={12}>
+              <ProfessionalProjects></ProfessionalProjects>
+            </Grid>
+          </Grid>
+        {/* </Container> */}
+      </Header>
     );
   }
 
@@ -100,15 +99,13 @@ class Home extends React.Component {
       return;
     }
 
-    navigator.serviceWorker
-      .getRegistration()
-      .then((registration) => {
-        return registration && registration.unregister();
-      })
-      .finally(() => {
-        navigator.serviceWorker.register("sw.js");
-        Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
-      });
+    navigator.serviceWorker.getRegistration().then((registration) => {
+      return registration && registration.unregister();
+    });
+    /* .finally(() => {
+      navigator.serviceWorker.register("sw.js");
+      Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
+    }); */
   }
 
   onScroll() {
@@ -143,4 +140,4 @@ export const getStaticProps = wrapper.getServerSideProps(async (ctx) => {
   };
 });
 
-export default connect()(Home);
+export default connect()(withStyles(styles)(Home));

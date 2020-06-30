@@ -1,6 +1,6 @@
 const Helper = (function () {
   const convertDate = (date) => {
-    if (date === "current") {
+    if (date.toLowerCase() === "current") {
       return "Current";
     }
 

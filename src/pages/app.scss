@@ -1,39 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800&family=Roboto+Mono:wght@100;300;400;500;700&display=swap");
 @import "./animations.scss";
-@import "@/Themes/Elegant.scss";
 
-$actual_viewable_width: 49rem;
-$font-family-mono: "Montserrat", sans-serif;
-$font-family-roboto-mono: "Roboto Mono", sans-serif;
+.linkTypeText {
+  cursor: pointer;
 
-$selected-main-color: $primary-color;
-$selected-contrast-color: $contrast-color;
-$selected-font-color: $font-color;
+  span {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-$header-background-color: $selected-main-color;
-$header-font-color: $selected-font-color;
-$header-font-contrast-color: $selected-contrast-color;
-
-$body-font-color: $selected-font-color;
-$body-background-color: $selected-main-color;
-
-$header_content_gap: 5rem;
-$header_height: 4rem;
-
-.global_main_class {
-  font-family: $font-family-mono;
-  font-size: 16px;
-  color: $body-font-color;
-  height: auto;
-  background-color: $body-background-color;
-  scroll-behavior: smooth;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  width: 100%;
-}
-
-@media only screen and (max-width: 900px) {
-  .global_main_class {
-    /* width: fit-content; */
+  &:hover {
+    text-decoration: underline;
   }
 }
