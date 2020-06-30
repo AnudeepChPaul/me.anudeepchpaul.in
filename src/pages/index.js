@@ -21,6 +21,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
+import Helper from "@/Helpers/Helper";
 
 const styles = theme => ({
   quickLinks: {
