@@ -79,7 +79,7 @@ const light = {
 };
 
 const theme = createMuiTheme({
-  palette: dark,
+  palette: light,
   typography,
   spacing: 4,
   cardHeight: 171,
