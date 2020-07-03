@@ -14,6 +14,7 @@ import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
 import { Grid, withStyles } from "@material-ui/core";
 import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
+import Helper from "@/Helpers/Helper";
 
 const styles = () => ({
   quickLinks: {
