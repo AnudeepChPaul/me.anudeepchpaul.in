@@ -19,7 +19,7 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="6Sel5PCo0RnZeZQzzoRUOiQIjWreM5FXUSN-o-RWyao"
           />
-          <meta name="theme-color" color="#1c2231" />
+          <meta name="theme-color" color="#000" />
           <meta name="robots" content="all" />
           <meta
             name="viewport"
