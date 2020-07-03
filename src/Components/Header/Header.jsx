@@ -21,7 +21,7 @@ import {
   ButtonGroup,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, Theme } from "@material-ui/core/styles";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { List } from "immutable";
 import clsx from "clsx";
@@ -45,7 +45,7 @@ import { Container } from "next/app";
 
 const drawerWidth = 120;
 
-const styles: any = (theme) => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -95,25 +95,10 @@ const styles: any = (theme) => ({
   },
 });
 
-interface HeaderProps {
-  classes: any;
-  header: HeaderReduxState;
-  scrollToRefs: (evt) => void;
-}
-
-interface HeaderState {
-  drawerOpen: any;
-}
-
-class Header extends React.Component<
-  PropsWithChildren<HeaderProps>,
-  HeaderState
-> {
-  public static propTypes = {
+class Header extends React.Component {
+  static propTypes = {
     classes: PropTypes.object.isRequired,
   };
-
-  public state: HeaderState;
 
   constructor(props) {
     super(props);
@@ -152,7 +137,7 @@ class Header extends React.Component<
     return (
       <div className={this.props.classes.linksWrapper}>
         {list &&
-          list.map((button: any, index) => (
+          list.map((button, index) => (
             <Button
               key={index}
               color="secondary"
@@ -171,6 +156,9 @@ class Header extends React.Component<
   render() {
     return (
       <div className={this.props.classes.root}>
+        <Head>
+          <title>{this.props.title.title}</title>
+        </Head>
         <CssBaseline />
         <AppBar position="fixed" className={clsx({})} elevation={1}>
           <Toolbar

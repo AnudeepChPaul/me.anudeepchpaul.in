@@ -9,7 +9,7 @@ import theme from "@/Helpers/Themes";
 import React from "react";
 import PropTypes from "prop-types";
 
-const MyApp = function MyApp(props: AppProps) {
+const MyApp = function MyApp(props) {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {

@@ -11,11 +11,7 @@ import {
 import { PaletteOptions } from "@material-ui/core/styles/createPalette";
 import { TypographyOptions } from "@material-ui/core/styles/createTypography";
 
-interface CustomTheme extends Theme {
-  cardHeight?: Number;
-}
-
-const typography: TypographyOptions = {
+const typography = {
   fontFamily: [
     "Montserrat",
     "sans-serif",
@@ -43,7 +39,7 @@ const typography: TypographyOptions = {
   },
 };
 
-const dark: PaletteOptions = {
+const dark = {
   type: "dark",
   primary: {
     main: "#000",
@@ -71,7 +67,7 @@ const dark: PaletteOptions = {
   tonalOffset: 0.2,
 };
 
-const light: PaletteOptions = {
+const light = {
   type: "light",
   primary: {
     main: "#fff",
@@ -95,7 +91,7 @@ const light: PaletteOptions = {
   tonalOffset: 0.2,
 };
 
-const theme: CustomTheme = createMuiTheme({
+const theme = createMuiTheme({
   palette: dark,
   typography,
   spacing: 4,

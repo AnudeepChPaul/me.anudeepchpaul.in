@@ -23,26 +23,13 @@ const styles = () => ({
   },
 });
 
-interface HomeProps {
-  classes: any;
-}
-
-interface HomeState {
-  fabButton: { show: boolean };
-}
-
-// const SkillsWrapper = forwardRef(Skills)
-
-class Home extends React.Component<HomeProps, HomeState> {
-  public props: HomeProps;
-  public state: HomeState;
-
-  private headerRef = createRef();
-  private aboutRef = createRef();
-  private skillsRef = createRef();
-  private experiencesRef = createRef();
-  private projectsRef = createRef();
-  private footerRef = createRef();
+class Home extends React.Component {
+  headerRef = createRef();
+  aboutRef = createRef();
+  skillsRef = createRef();
+  experiencesRef = createRef();
+  projectsRef = createRef();
+  footerRef = createRef();
 
   constructor(props) {
     super(props);
@@ -66,43 +53,19 @@ class Home extends React.Component<HomeProps, HomeState> {
     return (
       <Header scrollToRefs={this.scrollToRefs}>
         <Grid container spacing={0} justify="center">
-          <Grid
-            item
-            xs={12}
-            ref={(node: unknown) =>
-              (this.aboutRef = node as RefObject<unknown>)
-            }
-          >
+          <Grid item xs={12} ref={(node) => (this.aboutRef = node)}>
             <Me
               scrollToExp={() => this.doScrollToRefs("experience")}
               scrollToSkills={() => this.doScrollToRefs("skills")}
             ></Me>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            ref={(node: unknown) =>
-              (this.skillsRef = node as RefObject<unknown>)
-            }
-          >
+          <Grid item xs={12} ref={(node) => (this.skillsRef = node)}>
             <Skills></Skills>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            ref={(node: unknown) =>
-              (this.experiencesRef = node as RefObject<unknown>)
-            }
-          >
+          <Grid item xs={12} ref={(node) => (this.experiencesRef = node)}>
             <Experiences></Experiences>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            ref={(node: unknown) =>
-              (this.projectsRef = node as RefObject<unknown>)
-            }
-          >
+          <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
             <ProfessionalProjects></ProfessionalProjects>
           </Grid>
         </Grid>
@@ -119,7 +82,7 @@ class Home extends React.Component<HomeProps, HomeState> {
   }
 
   doScrollToRefs(ref) {
-    const scrollOptions: ScrollIntoViewOptions = {
+    const scrollOptions = {
       behavior: "smooth",
       block: "center",
       inline: "center",

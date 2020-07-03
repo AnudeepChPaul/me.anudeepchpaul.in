@@ -5,7 +5,7 @@ export const initialAppState = {
   title: 'null',
   header: {
     list: [],
-  } as HeaderReduxState,
+  }
 };
 
 export const appReducer = (state = initialAppState, { type, payload }) => {

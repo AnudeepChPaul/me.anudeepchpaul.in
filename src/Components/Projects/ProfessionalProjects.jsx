@@ -18,7 +18,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-const style = (theme: Theme) => {
+const style = (theme) => {
   return {
     professionalProjects: {
       backgroundColor: theme.palette.primary.main,
@@ -109,7 +109,11 @@ const projectTiles = (project, classes) => (
       >
         <span>{project.name}</span>
       </Typography>
-      <Typography variant="body2" className={classes.paperTilesSummaryHeader} color='secondary'>
+      <Typography
+        variant="body2"
+        className={classes.paperTilesSummaryHeader}
+        color="secondary"
+      >
         {" "}
         Technologies Used:{" "}
       </Typography>
@@ -124,7 +128,7 @@ const projectTiles = (project, classes) => (
         })}
       </Typography>
       <Typography variant="h6" className={classes.paperTilesSummary}>
-        {project.accomplishments.map((el: { order: string; text: any }) => {
+        {project.accomplishments.map((el) => {
           return (
             <Typography
               variant="body2"

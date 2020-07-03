@@ -54,14 +54,7 @@ const style = (theme) => ({
   skillCardContentGridItem: {},
 });
 
-interface SkillsProps {
-  classes: any;
-  fetchSkills: () => any;
-  fetchSkillsDataFromSW: (data: any) => any;
-  skills: { list: [] };
-}
-
-class Skills extends React.Component<SkillsProps, any> {
+class Skills extends React.Component {
   constructor(props) {
     super(props);
 
@@ -76,7 +69,7 @@ class Skills extends React.Component<SkillsProps, any> {
     // this.props.childRef(this)
 
     setTimeout(() => {
-      Helper.subscribeToSW((event: any) => {
+      Helper.subscribeToSW((event) => {
         event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
       });
     }, 2000);
@@ -106,7 +99,7 @@ class Skills extends React.Component<SkillsProps, any> {
             </Grid>
             <Grid item xs={12}>
               {this.props.skills &&
-                this.props.skills.list.map((skill: SkillReduxState) => (
+                this.props.skills.list.map((skill) => (
                   <SkillsBar skill={skill} key={skill.skillId} />
                 ))}
             </Grid>

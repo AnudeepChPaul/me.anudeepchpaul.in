@@ -13,7 +13,7 @@ import {
 import clsx from "clsx";
 import { SkillReduxState } from "@/Models/Skills";
 
-const SkillsBar = function (props: {classes?: any, skill: SkillReduxState}) {
+const SkillsBar = function (props) {
   const classes = makeStyles((theme) => ({
     progressBarWrapper: {
       display: "flex",

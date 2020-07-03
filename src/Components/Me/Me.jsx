@@ -10,14 +10,13 @@ import {
   CardMedia,
   Paper,
   Fade,
+  Theme,
 } from "@material-ui/core";
 import clsx from "clsx";
 
 const styles = (theme) => {
   const barHeight = 70;
   const imageHeight = 150 - barHeight;
-  console.log(theme);
-
   return {
     meCard: {
       // maxWidth: theme.spacing(150),
@@ -73,13 +72,7 @@ const styles = (theme) => {
   };
 };
 
-interface MeProps {
-  classes: any;
-  scrollToExp: (x) => void;
-  scrollToSkills: (x) => void;
-}
-
-class Me extends React.Component<MeProps, any> {
+class Me extends React.Component {
   constructor(props) {
     super(props);
 
