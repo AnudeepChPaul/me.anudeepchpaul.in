@@ -1,10 +1,6 @@
 import { connect } from "react-redux";
 import React, {
-  ElementRef,
   createRef,
-  RefObject,
-  useRef,
-  forwardRef,
 } from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
@@ -125,10 +121,10 @@ class Home extends React.Component {
       .then((registration) => {
         return registration && registration.unregister();
       })
-      /* .finally(() => {
+      .finally(() => {
         navigator.serviceWorker.register("sw.js");
         Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
-      }); */
+      });
   }
 
   onScroll() {
