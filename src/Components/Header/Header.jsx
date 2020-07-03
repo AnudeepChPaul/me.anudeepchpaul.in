@@ -189,6 +189,7 @@ class Header extends React.Component {
                 color="secondary"
                 key={index}
                 className={clsx(this.props.classes.quickLinksIconButton)}
+                aria-label='Connect virtually'
                 size="small"
               >
                 <FontAwesomeIcon icon={icon} />
