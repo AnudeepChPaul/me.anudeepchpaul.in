@@ -22,6 +22,7 @@ const style = (theme) => {
   return {
     professionalProjects: {
       backgroundColor: theme.palette.primary.main,
+      padding: theme.spacing(40, 4),
     },
     workDuration: {
       color: theme.palette.error.main,
@@ -67,8 +68,9 @@ const style = (theme) => {
     paperTiles: {
       height: "auto",
       padding: theme.spacing(4),
-      flex: 0.5,
+      flex: 0.8,
       margin: "auto",
+      backgroundColor: "transparent",
     },
     technologyLink: {
       cursor: "pointer",
