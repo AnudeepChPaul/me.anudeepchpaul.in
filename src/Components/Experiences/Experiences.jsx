@@ -25,12 +25,11 @@ import theme from "@/Helpers/Themes";
 
 const style = (theme) => ({
   experienceCard: {
-    // maxWidth: theme.spacing(170),
     backgroundColor: theme.palette.primary.main,
-    height: theme.spacing(theme.cardHeight),
+    padding: theme.spacing(40, 4)
   },
   workDuration: {
-    color: theme.palette.primary.customContrastColor,
+    color: theme.palette.error.main,
   },
   header: {
     textAlign: "center",
@@ -112,7 +111,7 @@ class Experiences extends React.Component {
     return (
       <Paper
         className={this.props.classes.experienceCard}
-        elevation={1}
+        elevation={0}
         square
         onMouseMove={this.onMouseEnter}
         onMouseOut={this.onMouseOut}

@@ -9,58 +9,43 @@ import {
   Grid,
   CardMedia,
   Paper,
-  Zoom,
-  IconButton,
-  Icon,
   Fade,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faLinkedinIn,
-  faFacebookF,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faInbox,
-  faMailBulk,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
-import theme from "@/Helpers/Themes";
 
 const styles = (theme) => {
   const barHeight = 70;
-  const imageHeight = theme.cardHeight - barHeight;
+  const imageHeight = 150 - barHeight;
+  console.log(theme);
 
   return {
     meCard: {
       // maxWidth: theme.spacing(150),
-      height: "100%",
       backgroundColor: theme.palette.primary.main,
-      height: theme.spacing(theme.cardHeight),
+      height: theme.spacing(imageHeight + barHeight),
+      margin: theme.spacing(16, 0, 0),
+      ...theme.mixins.toolbar,
     },
     contrastText: {
-      color: theme.palette.primary.customContrastColor,
+      color: theme.palette.error.main,
     },
     meSubtitleLink: {
       cursor: "pointer",
       "&:hover": {
-        textDecoration: "underline",
+        border: 0,
+        borderBottomColor: "inherit",
+        borderStyle: "solid",
+        borderBottomWidth: "1px",
       },
     },
     meCardMedia: {
       height: theme.spacing(imageHeight),
       width: theme.spacing(imageHeight - 1),
-      // height: theme.spacing(theme.cardHeight / 2),
-      // backgroundPosition: 'left'
       borderRadius: 4,
       margin: "auto",
     },
     meCardContent: {
       height: theme.spacing(barHeight),
-      // position: "sticky",
-      // top: theme.spacing(theme.cardHeight),
       padding: `${theme.spacing(4, 4, 1, 4)} !important`,
       color: theme.palette.secondary.main,
       backgroundColor: theme.palette.primary.main,
@@ -88,7 +73,13 @@ const styles = (theme) => {
   };
 };
 
-class Me extends React.Component {
+interface MeProps {
+  classes: any;
+  scrollToExp: (x) => void;
+  scrollToSkills: (x) => void;
+}
+
+class Me extends React.Component<MeProps, any> {
   constructor(props) {
     super(props);
 
@@ -99,11 +90,11 @@ class Me extends React.Component {
 
   render() {
     if (!this.state.visible) {
-      return <div className={classes.me_component_container}></div>;
+      return <div className={this.props.classes.me_component_container}></div>;
     }
 
     return (
-      <Paper className={this.props.classes.meCard} elevation={1} square>
+      <Paper className={this.props.classes.meCard} elevation={0} square>
         <Fade in={true} timeout={2000}>
           <CardMedia
             className={this.props.classes.meCardMedia}
@@ -120,7 +111,7 @@ class Me extends React.Component {
                   variant="h3"
                   className={this.props.classes.thinText}
                 >
-                  A<span classes={this.props.classes.contrastText}></span>
+                  A<span className={this.props.classes.contrastText}></span>
                   NUDEEP
                 </Typography>
               </Grid>
@@ -130,7 +121,7 @@ class Me extends React.Component {
                   variant="h3"
                   className={this.props.classes.thinText}
                 >
-                  C<span classes={this.props.classes.contrastText}></span>
+                  C<span className={this.props.classes.contrastText}></span>
                   HANDRA
                 </Typography>
               </Grid>
@@ -146,64 +137,54 @@ class Me extends React.Component {
               <Grid item xs={12}>
                 <Typography
                   className={this.props.classes.contrastText}
-                  dense="true"
                   variant="subtitle1"
                 >
-                  <span className={this.props.classes.meSubtitleLink}>
+                  <span
+                    className={this.props.classes.meSubtitleLink}
+                    onClick={this.props.scrollToSkills}
+                  >
                     AI & ML Engineer
                   </span>{" "}
                   -{" "}
-                  <span className={this.props.classes.meSubtitleLink}>
+                  <span
+                    className={this.props.classes.meSubtitleLink}
+                    onClick={this.props.scrollToSkills}
+                  >
                     Full Stack Web Developer
                   </span>
                 </Typography>
-                {/* <Typography
-                    className={this.props.classes.contrastText}
-                    dense="true"
-                    variant="subtitle1"
-                  >
-                    <span>- Full Stack Web Developer</span>
-                  </Typography> */}
               </Grid>
               <Grid item xs={12}>
                 <Typography
                   color="secondary"
-                  variant="h4"
-                  className={clsx(this.props.classes.thinText)}
+                  variant="body1"
+                  className={clsx()}
                 >
-                  Total 4.7+
+                  Total{" "}
+                  <span
+                    className={this.props.classes.meSubtitleLink}
+                    onClick={this.props.scrollToExp}
+                  >
+                    4.7+ Years Of Experiences
+                  </span>
+                </Typography>
+                <Typography
+                  color="secondary"
+                  variant="body1"
+                  className={clsx()}
+                >
+                  Currently lives in{" "}
+                  <span
+                    className={this.props.classes.meSubtitleLink}
+                    onClick={this.props.scrollToExp}
+                  >
+                    Bangalore
+                  </span>
                 </Typography>
               </Grid>
-              {/* <Grid item xs={12} className={this.props.classes.quickLinksBar}>
-                <Paper
-                  elevation={0}
-                  className={this.props.classes.quickLinksBarPaper}
-                >
-                  <Grid container spacing={2} justify={"center"}>
-                    {[faEnvelope, faLinkedinIn, faFacebookF, faTwitter].map(
-                      (icon, index) => (
-                        <Grid
-                          item
-                          xs={2}
-                          key={index}
-                          className={this.props.classes.quickLinksBarLink}
-                        >
-                          <IconButton
-                            className={this.props.classes.quickLinksBarLinkIcon}
-                            color="secondary"
-                          >
-                            <FontAwesomeIcon icon={icon} />
-                          </IconButton>
-                        </Grid>
-                      )
-                    )}
-                  </Grid>
-                </Paper>
-              </Grid> */}
             </Grid>
           </CardContent>
         </Fade>
-        {/* </CardMedia> */}
       </Paper>
     );
   }
@@ -215,17 +196,4 @@ export const getStaticProps = wrapper.getServerSideProps(async () => {
   };
 });
 
-const mapStateToProps = (state) => {
-  return {
-    ...state.application,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  loadAppPref: () => dispatch(fetchAppData()),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(Me));
+export default withStyles(styles)(Me);

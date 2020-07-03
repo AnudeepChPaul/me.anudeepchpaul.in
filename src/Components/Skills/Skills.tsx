@@ -17,84 +17,51 @@ import {
   Link,
 } from "@material-ui/core";
 import clsx from "clsx";
-
-const SkillsBar = function (props) {
-  const classes = makeStyles((theme) => ({
-    progressBarWrapper: {
-      display: "flex",
-      alignItems: "center",
-      flex: 1,
-      padding: theme.spacing(2),
-    },
-    progressBar: {
-      backgroundColor: theme.palette.primary.customContrastColor,
-      height: theme.spacing(1),
-    },
-    progressBarLabel: {
-      textAlign: "right",
-      textTransform: "uppercase",
-      cursor: "pointer",
-      "&:hover": {
-        textDecoration: "underline",
-      },
-    },
-  }))();
-
-  return (
-    <Grid container spacing={8}>
-      <Grid item xs={2}>
-        <Typography
-          color="secondary"
-          variant="body2"
-          gutterBottom
-          className={clsx(classes.progressBarLabel, "fade-in-fwd")}
-        >
-          {props.text}
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs={8}
-        className={clsx(classes.progressBarWrapper, "scale-in-hor-left")}
-      >
-        <div
-          className={classes.progressBar}
-          style={{
-            width: `${props.value}%`,
-          }}
-        ></div>
-      </Grid>
-      <Grid item xs={2} className={clsx("fade-in-fwd")}>
-        <Typography
-          color="secondary"
-          variant="body2"
-          gutterBottom
-        >{`${props.value}%`}</Typography>
-      </Grid>
-    </Grid>
-  );
-};
+import SkillsBar from "./SkillsBar";
+import { SkillReduxState } from "@/Models/Skills";
 
 const style = (theme) => ({
   skillCard: {
     backgroundColor: theme.palette.primary.main,
-    // cursor: "pointer",
     flex: 1,
-    height: theme.spacing(theme.cardHeight),
+    height: "100%",
+    padding: theme.spacing(40, 4),
   },
   header: {
     textAlign: "center",
+    height: theme.spacing(32),
   },
   skillCardContent: {
     height: "100%",
+    [theme.breakpoints.up("xs")]: {
+      width: theme.spacing(90),
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(130),
+    },
+    [theme.breakpoints.up("md")]: {
+      width: theme.spacing(160),
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: theme.spacing(200),
+    },
+    [theme.breakpoints.up("xl")]: {
+      width: theme.spacing(230),
+    },
+    margin: "auto",
   },
-  skillCardContentGrid: {
-    height: "100%",
-  },
+  skillCardContentGrid: {},
   skillCardContentGridItem: {},
 });
 
-class Skills extends React.Component {
+interface SkillsProps {
+  classes: any;
+  fetchSkills: () => any;
+  fetchSkillsDataFromSW: (data: any) => any;
+  skills: { list: [] };
+}
+
+class Skills extends React.Component<SkillsProps, any> {
   constructor(props) {
     super(props);
 
@@ -106,9 +73,10 @@ class Skills extends React.Component {
 
   componentDidMount() {
     this.props.fetchSkills();
+    // this.props.childRef(this)
 
     setTimeout(() => {
-      Helper.subscribeToSW((event) => {
+      Helper.subscribeToSW((event: any) => {
         event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
       });
     }, 2000);
@@ -116,14 +84,14 @@ class Skills extends React.Component {
 
   render() {
     if (!this.state.visible) {
-      return <div className={classes.Skills_component_container}></div>;
+      return <div></div>;
     }
     return (
-      <Paper className={this.props.classes.skillCard} elevation={1} square>
+      <Paper className={this.props.classes.skillCard} elevation={0} square>
         <CardContent className={this.props.classes.skillCardContent}>
           <Grid
             container
-            spacing={5}
+            spacing={1}
             className={this.props.classes.skillCardContentGrid}
             justify="space-evenly"
           >
@@ -138,8 +106,8 @@ class Skills extends React.Component {
             </Grid>
             <Grid item xs={12}>
               {this.props.skills &&
-                this.props.skills.list.map((skill) => (
-                  <SkillsBar {...skill} key={skill.skillId} />
+                this.props.skills.list.map((skill: SkillReduxState) => (
+                  <SkillsBar skill={skill} key={skill.skillId} />
                 ))}
             </Grid>
           </Grid>

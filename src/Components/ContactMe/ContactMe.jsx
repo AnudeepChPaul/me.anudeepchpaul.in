@@ -23,11 +23,11 @@ import theme from "@/Helpers/Themes";
 
 const styles = (theme) => ({
   contactMePaper: {
-    height: theme.spacing(theme.cardHeight),
+    // height: theme.spacing(theme.cardHeight),
   },
   contactMeCard: {
     // backgroundColor: theme.palette.primary.main,
-    height: theme.spacing(theme.cardHeight),
+    // height: theme.spacing(theme.cardHeight),
     padding: theme.spacing(4),
   },
 });

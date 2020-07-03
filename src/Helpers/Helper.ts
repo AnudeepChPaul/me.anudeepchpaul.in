@@ -1,5 +1,5 @@
 const Helper = (function () {
-  const convertDate = (date) => {
+  const convertDate = (date: string): string => {
     if (date.toLowerCase() === "current") {
       return "Current";
     }
@@ -23,7 +23,7 @@ const Helper = (function () {
     return `${convDate.getFullYear()}-${months[convDate.getMonth()]}`;
   };
 
-  const subscribeToSW = (cb) => {
+  const subscribeToSW = (cb): void => {
     // navigator.serviceWorker.removeEventListener(
     //   "message",
     //   runDispatchFromSWUpdate
@@ -31,7 +31,7 @@ const Helper = (function () {
     navigator.serviceWorker.addEventListener("message", (event) => cb(event));
   };
 
-  const triggerBackgroundSync = (config) => {
+  const triggerBackgroundSync = (config): void => {
     setInterval(() => {
       navigator.serviceWorker.ready.then((swRegistration) => {
         return swRegistration.sync.register("cors");

@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, Theme } from "@material-ui/core";
 import {
   yellow,
   blue,
@@ -6,9 +6,16 @@ import {
   pink,
   cyan,
   orange,
+  lightBlue,
 } from "@material-ui/core/colors";
+import { PaletteOptions } from "@material-ui/core/styles/createPalette";
+import { TypographyOptions } from "@material-ui/core/styles/createTypography";
 
-const typography = {
+interface CustomTheme extends Theme {
+  cardHeight?: Number;
+}
+
+const typography: TypographyOptions = {
   fontFamily: [
     "Montserrat",
     "sans-serif",
@@ -36,16 +43,24 @@ const typography = {
   },
 };
 
-const dark = {
+const dark: PaletteOptions = {
   type: "dark",
   primary: {
     main: "#000",
-    customContrastColor: "#f50057",
   },
   secondary: {
     main: yellow[50],
     light: yellow[50],
     dark: yellow[50],
+  },
+  error: {
+    main: pink["A400"],
+  },
+  info: {
+    main: lightBlue["A700"],
+  },
+  warning: {
+    main: yellow["A700"],
   },
   // Used by `getContrastText()` to maximize the contrast between
   // the background and the text.
@@ -56,18 +71,20 @@ const dark = {
   tonalOffset: 0.2,
 };
 
-const light = {
+const light: PaletteOptions = {
   type: "light",
   primary: {
     main: "#fff",
     light: "#fff",
     dark: "#fff",
-    customContrastColor: pink["A400"],
   },
   secondary: {
     main: "#000",
     light: "#000",
     dark: "#000",
+  },
+  error: {
+    main: pink["A400"],
   },
   // Used by `getContrastText()` to maximize the contrast between
   // the background and the text.
@@ -78,11 +95,10 @@ const light = {
   tonalOffset: 0.2,
 };
 
-const theme = createMuiTheme({
-  palette: light,
+const theme: CustomTheme = createMuiTheme({
+  palette: dark,
   typography,
   spacing: 4,
-  cardHeight: 171,
 });
 
 export default theme;
