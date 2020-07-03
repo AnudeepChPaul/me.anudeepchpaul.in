@@ -89,6 +89,7 @@ class Footer extends React.Component {
               </Typography>
               <TextField
                 name="Name"
+                id="Name"
                 placeholder="Name"
                 label="Name"
                 color="secondary"
@@ -96,6 +97,7 @@ class Footer extends React.Component {
               />
               <TextField
                 name="Phone"
+                id="Phone"
                 placeholder="Phone Number"
                 color="secondary"
                 label="Phone Number"
@@ -103,6 +105,7 @@ class Footer extends React.Component {
               />
               <TextField
                 name="Email"
+                id="Email"
                 placeholder="Email"
                 color="secondary"
                 label="Email"
@@ -110,6 +113,7 @@ class Footer extends React.Component {
               />
               <TextField
                 name="Message"
+                id="Message"
                 placeholder="Message"
                 label="Message"
                 multiline={true}
