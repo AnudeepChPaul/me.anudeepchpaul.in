@@ -130,7 +130,8 @@ class Me extends React.Component {
               <Grid item xs={12}>
                 <Typography
                   className={this.props.classes.contrastText}
-                  variant="subtitle1"
+                  variant="body1"
+                  gutterBottom
                 >
                   <span
                     className={this.props.classes.meSubtitleLink}
