@@ -157,12 +157,12 @@ class ProfessionalProjects extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      Helper.subscribeToSW((event) => {
-        event.data.experiences &&
-          this.props.fetchExperienceDataFromSW(event.data);
-      });
-    }, 2000);
+    // setTimeout(() => {
+    //   Helper.subscribeToSW((event) => {
+    //     event.data.experiences &&
+    //       this.props.fetchExperienceDataFromSW(event.data);
+    //   });
+    // }, 2000);
   }
 
   getProfessionalProjects() {
