@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
-import React, {
-  createRef,
-} from "react";
+import React, { createRef } from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
@@ -121,10 +119,10 @@ class Home extends React.Component {
       .then((registration) => {
         return registration && registration.unregister();
       })
-      /* .finally(() => {
-        navigator.serviceWorker.register("sw.js");
+      .finally(() => {
+        navigator.serviceWorker.register("resume-sw.js");
         Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
-      }); */
+      });
   }
 
   onScroll() {
