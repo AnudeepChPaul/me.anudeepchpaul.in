@@ -81,7 +81,7 @@ class Experiences extends React.Component {
             <TimelineDot variant="outlined" />
             {size !== order && <TimelineConnector />}
           </TimelineSeparator>
-          <Grow in={true} timeout={1000}>
+          {/* <Grow in={true} timeout={1000}> */}
             <TimelineContent>
               <Typography
                 color="textSecondary"
@@ -97,7 +97,7 @@ class Experiences extends React.Component {
                 {experience.designation}
               </Typography>
             </TimelineContent>
-          </Grow>
+          {/* </Grow> */}
         </TimelineItem>
       );
     });
