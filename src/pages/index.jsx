@@ -14,6 +14,7 @@ import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
 import { Grid, withStyles } from "@material-ui/core";
 import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
+import Footer from "@/Components/Footer/Footer";
 import Helper from "@/Helpers/Helper";
 
 const styles = () => ({
@@ -69,6 +70,9 @@ class Home extends React.Component {
           <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
             <ProfessionalProjects></ProfessionalProjects>
           </Grid>
+          <Grid item xs={12} ref={(node) => (this.footerRef = node)}>
+            <Footer></Footer>
+          </Grid>
         </Grid>
       </Header>
     );
@@ -121,10 +125,10 @@ class Home extends React.Component {
       .then((registration) => {
         return registration && registration.unregister();
       })
-      .finally(() => {
+      /* .finally(() => {
         navigator.serviceWorker.register("sw.js");
         Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
-      });
+      }); */
   }
 
   onScroll() {
