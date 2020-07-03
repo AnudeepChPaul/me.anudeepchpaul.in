@@ -88,14 +88,14 @@ class Me extends React.Component {
 
     return (
       <Paper className={this.props.classes.meCard} elevation={0} square>
-        <Fade in={true} timeout={2000}>
+        {/* <Fade in={true} timeout={2000}> */}
           <CardMedia
             className={this.props.classes.meCardMedia}
             image="/me_black.jpeg"
             title="Anudeep Chandra Paul"
           />
-        </Fade>
-        <Fade in={true} timeout={1000}>
+        {/* </Fade> */}
+        {/* <Fade in={true} timeout={1000}> */}
           <CardContent className={this.props.classes.meCardContent}>
             <Grid container spacing={0} justify="center">
               <Grid item xs={12}>
@@ -177,7 +177,7 @@ class Me extends React.Component {
               </Grid>
             </Grid>
           </CardContent>
-        </Fade>
+        {/* </Fade> */}
       </Paper>
     );
   }
