@@ -115,13 +115,15 @@ class Home extends React.Component {
       return;
     }
 
-    navigator.serviceWorker.getRegistration().then((registration) => {
-      return registration && registration.unregister();
-    });
-    // .finally(() => {
-    //   navigator.serviceWorker.register("sw.js");
-    //   Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
-    // });
+    navigator.serviceWorker
+      .getRegistration()
+      .then((registration) => {
+        return registration && registration.unregister();
+      })
+      .finally(() => {
+        navigator.serviceWorker.register("sw.js");
+        Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
+      });
   }
 
   onScroll() {
