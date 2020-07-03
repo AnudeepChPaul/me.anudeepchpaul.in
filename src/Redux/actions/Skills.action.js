@@ -7,7 +7,19 @@ export const skillsState = {
 
 const fetchSkillsData = async () => {
   const data = await getSkillSet();
-  return { type: skillsState.SKILLS_DATA_LOAD_FINISHED, payload: data };
+  return { type: skillsState.SKILLS_DATA_LOAD_FINISHED, payload: sortData({...data}) };
+};
+
+const sortData = function (resp) {
+  let newList = resp.skills.list.concat([]);
+
+  newList = newList
+    .sort((el1, el2) => Number(el1.order) - Number(el2.order))
+    .concat([]);
+
+  resp.skills.list = newList;
+
+  return { ...resp };
 };
 
 export const fetchSkills = () => {
@@ -21,6 +33,9 @@ export const fetchSkills = () => {
 
 export const fetchSkillsDataFromSW = (data) => {
   return (dispatch) => {
-    return dispatch({ type: skillsState.SKILLS_DATA_LOAD_FINISHED, payload: data });
+    return dispatch({
+      type: skillsState.SKILLS_DATA_LOAD_FINISHED,
+      payload: sortData({...data}),
+    });
   };
 };

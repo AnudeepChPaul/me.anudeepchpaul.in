@@ -6,8 +6,20 @@ export const appState = {
   APP_LOAD_FINISHED: "APP_LOAD_FINISHED",
 };
 
+const sortData = function (appData) {
+  let newList = appData.header.list.concat([]);
+
+  newList = newList
+    .sort((el1, el2) => Number(el1.order) - Number(el2.order))
+    .concat([]);
+
+  appData.header.list = newList;
+
+  return { ...appData };
+};
+
 const getData = async () => {
-  const data = await initializeAppData();
+  const data = sortData(await initializeAppData());
   const photos = await unsplash.search.photos("programming", 2);
   const images = await photos.json();
   return { type: appState.APP_LOAD_FINISHED, payload: { ...data, images } };
@@ -15,6 +27,6 @@ const getData = async () => {
 
 export const fetchAppData = () => {
   return (dispatch) => {
-    return getData().then((data) => dispatch(data));
+    return getData().then((data) => dispatch({...data}));
   };
 };

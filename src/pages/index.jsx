@@ -1,17 +1,37 @@
 import { connect } from "react-redux";
-import React, { createRef } from "react";
+import React, {
+  ElementRef,
+  createRef,
+  RefObject,
+  useRef,
+  forwardRef,
+} from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
 import Skills from "@/Components/Skills/Skills";
 import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
-import Footer from "@/Components/Footer/Footer";
-import FabButton from "@/Components/Button/FabButton/GotoTop";
-import { fetchSkillsDataFromSW } from "@/Redux/actions/Skills.action";
+import { Grid, withStyles } from "@material-ui/core";
+import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
 import Helper from "@/Helpers/Helper";
 
+const styles = () => ({
+  quickLinks: {
+    position: "fixed",
+    right: 0,
+    top: 0,
+  },
+});
+
 class Home extends React.Component {
+  headerRef = createRef();
+  aboutRef = createRef();
+  skillsRef = createRef();
+  experiencesRef = createRef();
+  projectsRef = createRef();
+  footerRef = createRef();
+
   constructor(props) {
     super(props);
 
@@ -32,65 +52,61 @@ class Home extends React.Component {
 
   render() {
     return (
-      <>
-        <div
-          ref={(node) => (this.headerRef = node)}
-          className="header_container"
-        >
-          <Header scrollToRefs={this.scrollToRefs} />
-        </div>
-        <main className="container">
-          <div
-            ref={(node) => (this.aboutRef = node)}
-            className="aboutme_container"
-          >
-            <Me></Me>
-          </div>
-          <div
-            ref={(node) => (this.skillsRef = node)}
-            className="skills_container"
-          >
+      <Header scrollToRefs={this.scrollToRefs}>
+        <Grid container spacing={0} justify="center">
+          <Grid item xs={12} ref={(node) => (this.aboutRef = node)}>
+            <Me
+              scrollToExp={() => this.doScrollToRefs("experience")}
+              scrollToSkills={() => this.doScrollToRefs("skills")}
+            ></Me>
+          </Grid>
+          <Grid item xs={12} ref={(node) => (this.skillsRef = node)}>
             <Skills></Skills>
-          </div>
-          <div
-            ref={(node) => (this.experiencesRef = node)}
-            className="experience_container"
-          >
+          </Grid>
+          <Grid item xs={12} ref={(node) => (this.experiencesRef = node)}>
             <Experiences></Experiences>
-          </div>
-          <FabButton
-            onClick={this.scrollToRefs}
-            text={this.state.fabButton.text}
-            hide={!this.state.fabButton.show}
-          />
-        </main>
-        <div
-          ref={(node) => (this.footerRef = node)}
-          className="experience_container"
-        >
-          <Footer />
-        </div>
-      </>
+          </Grid>
+          <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
+            <ProfessionalProjects></ProfessionalProjects>
+          </Grid>
+        </Grid>
+      </Header>
     );
   }
 
   scrollToRefs(evt) {
-    const attr = evt.target.getAttribute("aria-label");
+    const attr =
+      evt.target.getAttribute("aria-label") ||
+      evt.target.parentElement.getAttribute("aria-label");
 
-    if (!attr) return this.headerRef.scrollIntoView({ behavior: "smooth" });
+    this.doScrollToRefs(attr);
+  }
 
-    switch (attr) {
+  doScrollToRefs(ref) {
+    const scrollOptions = {
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    };
+
+    switch (ref) {
       case "about_me":
-        this.aboutRef.scrollIntoView({ behavior: "smooth" });
+        this.aboutRef.scrollIntoView(scrollOptions);
         break;
       case "skills":
-        this.skillsRef.scrollIntoView({ behavior: "smooth" });
+        this.skillsRef.scrollIntoView(scrollOptions);
         break;
       case "experience":
-        this.experiencesRef.scrollIntoView({ behavior: "smooth" });
+        this.experiencesRef.scrollIntoView(scrollOptions);
         break;
       case "contact":
-        this.footerRef.scrollIntoView({ behavior: "smooth" });
+        this.footerRef.scrollIntoView(scrollOptions);
+        break;
+      case "work_projects":
+        this.projectsRef.scrollIntoView(scrollOptions);
+        break;
+      default:
+        this.headerRef.scrollIntoView(scrollOptions);
         break;
     }
   }
@@ -107,7 +123,7 @@ class Home extends React.Component {
       })
       .finally(() => {
         navigator.serviceWorker.register("sw.js");
-        Helper.triggerBackgroundSync({SYNC_INTERVAL: 30000})
+        Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
       });
   }
 
@@ -143,4 +159,4 @@ export const getStaticProps = wrapper.getServerSideProps(async (ctx) => {
   };
 });
 
-export default connect()(Home);
+export default connect()(withStyles(styles)(Home));
