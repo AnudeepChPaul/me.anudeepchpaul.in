@@ -1,6 +1,4 @@
-import App from "next/app";
 import { wrapper } from "@/Redux";
-import { AppProps } from "next/app";
 
 import "@/pages/app.scss";
 import { ThemeProvider } from "@material-ui/core/styles";

@@ -3,12 +3,9 @@ import React, { createRef } from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
-import Skills from "@/Components/Skills/Skills";
-// import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
-import { Grid, withStyles } from "@material-ui/core";
-// import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
-// import Footer from "@/Components/Footer/Footer";
+import Grid from "@material-ui/core/Grid";
+import withStyles from "@material-ui/core/styles/withStyles";
 import Helper from "@/Helpers/Helper";
 import loadable from "@loadable/component";
 
@@ -20,9 +17,10 @@ const styles = () => ({
   },
 });
 
-// const Skills = loadable(() =>
-//   import(/* webpackPrefetch: true */ "@/Components/Skills/Skills")
-// );
+const Skills = loadable(() =>
+  import(/* webpackPrefetch: true */ "@/Components/Skills/Skills")
+);
+
 const Experiences = loadable(() =>
   import(/* webpackPrefetch: true */ "@/Components/Experiences/Experiences")
 );
@@ -33,6 +31,9 @@ const ProfessionalProjects = loadable(() =>
   import(
     /* webpackPrefetch: true */ "@/Components/Projects/ProfessionalProjects"
   )
+);
+const Package = loadable(() =>
+  import(/* webpackPrefetch: true */ "@/Components/Package/Package")
 );
 
 class Home extends React.Component {
@@ -80,6 +81,9 @@ class Home extends React.Component {
           <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
             <ProfessionalProjects></ProfessionalProjects>
           </Grid>
+          <Grid item xs={12} ref={(node) => (this.packageRef = node)}>
+            <Package></Package>
+          </Grid>
           <Grid item xs={12} ref={(node) => (this.footerRef = node)}>
             <Footer></Footer>
           </Grid>
@@ -119,6 +123,9 @@ class Home extends React.Component {
       case "work_projects":
         this.projectsRef.scrollIntoView(scrollOptions);
         break;
+      case "pay_scale":
+        this.packageRef.scrollIntoView(scrollOptions);
+        break;
       default:
         this.headerRef.scrollIntoView(scrollOptions);
         break;
@@ -130,13 +137,17 @@ class Home extends React.Component {
       return;
     }
 
-    navigator.serviceWorker.getRegistration().then((registration) => {
-      return registration && registration.unregister();
-    });
-    /* .finally(() => {
-        navigator.serviceWorker.register("resume-sw.js");
-        Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
-      }); */
+    navigator.serviceWorker
+      .getRegistration()
+      .then((registration) => {
+        return registration && registration.unregister();
+      })
+      .finally(() => {
+        if (process.env.NODE_ENV === "production") {
+          navigator.serviceWorker.register("resume-sw.js");
+          Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
+        }
+      });
   }
 
   onScroll() {
