@@ -6,6 +6,7 @@ import Me from "@/Components/Me/Me";
 import Header from "@/Components/Header/Header";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Skills from "@/Components/Skills/Skills";
 import Helper from "@/Helpers/Helper";
 import loadable from "@loadable/component";
 
@@ -16,10 +17,6 @@ const styles = () => ({
     top: 0,
   },
 });
-
-const Skills = loadable(() =>
-  import(/* webpackPrefetch: true */ "@/Components/Skills/Skills")
-);
 
 const Experiences = loadable(() =>
   import(/* webpackPrefetch: true */ "@/Components/Experiences/Experiences")
