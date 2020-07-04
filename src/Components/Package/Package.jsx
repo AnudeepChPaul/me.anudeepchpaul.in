@@ -54,7 +54,7 @@ const style = (theme) => ({
   skillCardContentGridItem: {},
 });
 
-class Skills extends React.Component {
+class Package extends React.Component {
   constructor(props) {
     super(props);
 
@@ -65,14 +65,14 @@ class Skills extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSkills();
+    /* this.props.fetchSkills();
     // this.props.childRef(this)
 
     setTimeout(() => {
       Helper.subscribeToSW((event) => {
         event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
       });
-    }, 2000);
+    }, 2000); */
   }
 
   render() {
@@ -94,15 +94,10 @@ class Skills extends React.Component {
                 variant="h3"
                 className={this.props.classes.header}
               >
-                Professional Skills
+                Pricings
               </Typography>
             </Grid>
-            <Grid item xs={12}>
-              {this.props.skills &&
-                this.props.skills.list.map((skill) => (
-                  <SkillsBar skill={skill} key={skill.skillId} />
-                ))}
-            </Grid>
+            <Grid item xs={12}></Grid>
           </Grid>
         </CardContent>
       </Paper>
@@ -125,4 +120,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(style)(Skills));
+)(withStyles(style)(Package));
