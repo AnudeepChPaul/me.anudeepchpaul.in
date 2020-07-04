@@ -91,6 +91,7 @@ class Me extends React.Component {
         {/* <Fade in={true} timeout={2000}> */}
           <CardMedia
             className={this.props.classes.meCardMedia}
+            image='/me_black.jpeg'
             title="Anudeep Chandra Paul"
           />
         {/* </Fade> */}

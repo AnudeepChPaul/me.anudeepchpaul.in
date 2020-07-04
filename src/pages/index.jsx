@@ -1,17 +1,16 @@
 import { connect } from "react-redux";
-import React, {
-  createRef,
-} from "react";
+import React, { createRef } from "react";
 import { wrapper } from "@/Redux";
 import { fetchAppData } from "@/Redux/actions/App.action";
 import Me from "@/Components/Me/Me";
 import Skills from "@/Components/Skills/Skills";
-import Experiences from "@/Components/Experiences/Experiences";
+// import Experiences from "@/Components/Experiences/Experiences";
 import Header from "@/Components/Header/Header";
 import { Grid, withStyles } from "@material-ui/core";
-import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
-import Footer from "@/Components/Footer/Footer";
+// import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
+// import Footer from "@/Components/Footer/Footer";
 import Helper from "@/Helpers/Helper";
+import loadable from "@loadable/component";
 
 const styles = () => ({
   quickLinks: {
@@ -20,6 +19,21 @@ const styles = () => ({
     top: 0,
   },
 });
+
+// const Skills = loadable(() =>
+//   import(/* webpackPrefetch: true */ "@/Components/Skills/Skills")
+// );
+const Experiences = loadable(() =>
+  import(/* webpackPrefetch: true */ "@/Components/Experiences/Experiences")
+);
+const Footer = loadable(() =>
+  import(/* webpackPrefetch: true */ "@/Components/Footer/Footer")
+);
+const ProfessionalProjects = loadable(() =>
+  import(
+    /* webpackPrefetch: true */ "@/Components/Projects/ProfessionalProjects"
+  )
+);
 
 class Home extends React.Component {
   headerRef = createRef();
@@ -116,13 +130,11 @@ class Home extends React.Component {
       return;
     }
 
-    navigator.serviceWorker
-      .getRegistration()
-      .then((registration) => {
-        return registration && registration.unregister();
-      })
-      /* .finally(() => {
-        navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.getRegistration().then((registration) => {
+      return registration && registration.unregister();
+    });
+    /* .finally(() => {
+        navigator.serviceWorker.register("resume-sw.js");
         Helper.triggerBackgroundSync({ SYNC_INTERVAL: 30000 });
       }); */
   }
