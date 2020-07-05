@@ -30,7 +30,7 @@ self.addEventListener("fetch", (event) => {
         (event.request.mode === "cors" &&
         corsRequests.indexOf(event.request.url) === -1 &&
         event.request.url.indexOf("resume/api") !== -1) || 
-        event.request.url.indexOf("5_opt_me_black.jpg")
+        event.request.url.indexOf("5_opt_me_black.jpg") !== -1
       ) {
         corsRequests.push(event.request.url);
       }
