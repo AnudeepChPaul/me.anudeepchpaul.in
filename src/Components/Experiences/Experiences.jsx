@@ -11,7 +11,6 @@ import {
   CardContent,
   Grid,
   Typography,
-  Grow,
 } from "@material-ui/core";
 import {
   Timeline,
@@ -21,12 +20,11 @@ import {
   TimelineConnector,
   TimelineContent,
 } from "@material-ui/lab";
-import theme from "@/Helpers/Themes";
 
 const style = (theme) => ({
   experienceCard: {
     backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(40, 4)
+    padding: theme.spacing(40, 4),
   },
   workDuration: {
     color: theme.palette.error.main,
@@ -58,12 +56,12 @@ class Experiences extends React.Component {
   componentDidMount() {
     this.props.fetchExperiences();
 
-    setTimeout(() => {
-      Helper.subscribeToSW((event) => {
-        event.data.experiences &&
-          this.props.fetchExperienceDataFromSW(event.data);
-      });
-    }, 2000);
+    // setTimeout(() => {
+    Helper.subscribeToSW((event) => {
+      event.data.experiences &&
+        this.props.fetchExperienceDataFromSW(event.data);
+    });
+    // }, 2000);
   }
 
   getExperienceBlocks() {
@@ -82,21 +80,21 @@ class Experiences extends React.Component {
             {size !== order && <TimelineConnector />}
           </TimelineSeparator>
           {/* <Grow in={true} timeout={1000}> */}
-            <TimelineContent>
-              <Typography
-                color="textSecondary"
-                variant="subtitle2"
-                className={this.props.classes.workDuration}
-              >
-                {`${Helper.convertDate(from)} to ${Helper.convertDate(to)}`}
-              </Typography>
-              <Typography color="textSecondary" variant="body1">
-                {experience.companyName}
-              </Typography>
-              <Typography color="textSecondary" variant="caption">
-                {experience.designation}
-              </Typography>
-            </TimelineContent>
+          <TimelineContent>
+            <Typography
+              color="textSecondary"
+              variant="subtitle2"
+              className={this.props.classes.workDuration}
+            >
+              {`${Helper.convertDate(from)} to ${Helper.convertDate(to)}`}
+            </Typography>
+            <Typography color="textSecondary" variant="body1">
+              {experience.companyName}
+            </Typography>
+            <Typography color="textSecondary" variant="caption">
+              {experience.designation}
+            </Typography>
+          </TimelineContent>
           {/* </Grow> */}
         </TimelineItem>
       );

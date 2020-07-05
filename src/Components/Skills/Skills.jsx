@@ -11,14 +11,8 @@ import {
   CardContent,
   Grid,
   Typography,
-  makeStyles,
-  Card,
-  Button,
-  Link,
 } from "@material-ui/core";
-import clsx from "clsx";
 import SkillsBar from "./SkillsBar";
-import { SkillReduxState } from "@/Models/Skills";
 
 const style = (theme) => ({
   skillCard: {
@@ -68,11 +62,11 @@ class Skills extends React.Component {
     this.props.fetchSkills();
     // this.props.childRef(this)
 
-    setTimeout(() => {
-      Helper.subscribeToSW((event) => {
-        event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
-      });
-    }, 2000);
+    // setTimeout(() => {
+    Helper.subscribeToSW((event) => {
+      event.data.skills && this.props.fetchSkillsDataFromSW(event.data);
+    });
+    // }, 2000);
   }
 
   render() {

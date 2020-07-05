@@ -1,17 +1,5 @@
 import React from "react";
 import {
-  faReact,
-  faLinkedin,
-  faFacebook,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faThermometerEmpty,
-} from "@fortawesome/free-solid-svg-icons";
-import {
   Grid,
   TextField,
   Paper,
@@ -19,7 +7,6 @@ import {
   CardContent,
   withStyles,
 } from "@material-ui/core";
-import theme from "@/Helpers/Themes";
 
 const styles = (theme) => ({
   contactMePaper: {

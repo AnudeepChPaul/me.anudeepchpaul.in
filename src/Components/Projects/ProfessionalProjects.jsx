@@ -4,14 +4,12 @@ import {
   fetchExperiences,
   fetchExperienceDataFromSW,
 } from "@/Redux/actions/Experiences.action";
-import Helper from "@/Helpers/Helper";
 import {
   withStyles,
   Paper,
   CardContent,
   Grid,
   Typography,
-  Theme,
 } from "@material-ui/core";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";

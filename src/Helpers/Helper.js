@@ -39,10 +39,27 @@ const Helper = (function () {
     }, config.SYNC_INTERVAL);
   };
 
+  const toDataURL = function (url) {
+    return new Promise((res, rej) => {
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          res(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', url);
+      xhr.responseType = 'blob';
+      xhr.send();
+    })
+  }
+
   return {
     convertDate,
     subscribeToSW,
-    triggerBackgroundSync
+    triggerBackgroundSync,
+    toDataURL
   };
 })();
 
