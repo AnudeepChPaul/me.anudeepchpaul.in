@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Skills from "@/Components/Skills/Skills";
 import Helper from "@/Helpers/Helper";
-import loadable from "@loadable/component";
+import dynamic from "next/dynamic";
 
 const styles = () => ({
   quickLinks: {
@@ -18,20 +18,14 @@ const styles = () => ({
   },
 });
 
-const Experiences = loadable(() =>
-  import(/* webpackPrefetch: true */ "@/Components/Experiences/Experiences")
+const Experiences = dynamic(() =>
+  import("@/Components/Experiences/Experiences")
 );
-const Footer = loadable(() =>
-  import(/* webpackPrefetch: true */ "@/Components/Footer/Footer")
+const Footer = dynamic(() => import("@/Components/Footer/Footer"));
+const ProfessionalProjects = dynamic(() =>
+  import("@/Components/Projects/ProfessionalProjects")
 );
-const ProfessionalProjects = loadable(() =>
-  import(
-    /* webpackPrefetch: true */ "@/Components/Projects/ProfessionalProjects"
-  )
-);
-const Package = loadable(() =>
-  import(/* webpackPrefetch: true */ "@/Components/Package/Package")
-);
+const Package = dynamic(() => import("@/Components/Package/Package"));
 
 class Home extends React.Component {
   headerRef = createRef();
@@ -149,7 +143,6 @@ class Home extends React.Component {
 
   onScroll() {
     // this.timer && clearTimeout(this.timer);
-
     // this.timer = setTimeout(() => {
     //   if (document.scrollingElement.scrollTop > 180) {
     //     return (
@@ -160,7 +153,6 @@ class Home extends React.Component {
     //       })
     //     );
     //   }
-
     //   this.state.fabButton.show &&
     //     this.setState((state) => {
     //       state.fabButton.show = false;
