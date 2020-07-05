@@ -153,25 +153,25 @@ class Home extends React.Component {
   }
 
   onScroll() {
-    this.timer && clearTimeout(this.timer);
+    // this.timer && clearTimeout(this.timer);
 
-    this.timer = setTimeout(() => {
-      if (document.scrollingElement.scrollTop > 180) {
-        return (
-          !this.state.fabButton.show &&
-          this.setState((state) => {
-            state.fabButton.show = true;
-            return state;
-          })
-        );
-      }
+    // this.timer = setTimeout(() => {
+    //   if (document.scrollingElement.scrollTop > 180) {
+    //     return (
+    //       !this.state.fabButton.show &&
+    //       this.setState((state) => {
+    //         state.fabButton.show = true;
+    //         return state;
+    //       })
+    //     );
+    //   }
 
-      this.state.fabButton.show &&
-        this.setState((state) => {
-          state.fabButton.show = false;
-          return state;
-        });
-    }, 50);
+    //   this.state.fabButton.show &&
+    //     this.setState((state) => {
+    //       state.fabButton.show = false;
+    //       return state;
+    //     });
+    // }, 50);
   }
 }
 
