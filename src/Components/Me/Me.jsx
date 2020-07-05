@@ -1,16 +1,10 @@
-import { connect } from "react-redux";
 import React from "react";
-import { wrapper } from "@/Redux";
-import { fetchAppData } from "@/Redux/actions/App.action";
 import {
   Typography,
   withStyles,
-  CardContent,
   Grid,
   CardMedia,
   Paper,
-  Fade,
-  Theme,
 } from "@material-ui/core";
 import clsx from "clsx";
 

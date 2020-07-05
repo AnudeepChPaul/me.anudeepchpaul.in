@@ -11,14 +11,8 @@ import {
   CardContent,
   Grid,
   Typography,
-  makeStyles,
-  Card,
-  Button,
-  Link,
 } from "@material-ui/core";
-import clsx from "clsx";
 import SkillsBar from "./SkillsBar";
-import { SkillReduxState } from "@/Models/Skills";
 
 const style = (theme) => ({
   skillCard: {

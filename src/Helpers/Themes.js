@@ -1,15 +1,9 @@
-import { createMuiTheme, Theme } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core";
 import {
   yellow,
-  blue,
-  red,
   pink,
-  cyan,
-  orange,
   lightBlue,
 } from "@material-ui/core/colors";
-import { PaletteOptions } from "@material-ui/core/styles/createPalette";
-import { TypographyOptions } from "@material-ui/core/styles/createTypography";
 
 const typography = {
   fontFamily: [
@@ -67,29 +61,6 @@ const dark = {
   tonalOffset: 0.2,
 };
 
-const light = {
-  type: "light",
-  primary: {
-    main: "#fff",
-    light: "#fff",
-    dark: "#fff",
-  },
-  secondary: {
-    main: "#000",
-    light: "#000",
-    dark: "#000",
-  },
-  error: {
-    main: pink["A400"],
-  },
-  // Used by `getContrastText()` to maximize the contrast between
-  // the background and the text.
-  contrastThreshold: 3,
-  // Used by the functions below to shift a color's luminance by approximately
-  // two indexes within its tonal palette.
-  // E.g., shift from Red 500 to Red 300 or Red 700.
-  tonalOffset: 0.2,
-};
 
 const theme = createMuiTheme({
   palette: dark,

@@ -11,7 +11,6 @@ import {
   CardContent,
   Grid,
   Typography,
-  Grow,
 } from "@material-ui/core";
 import {
   Timeline,
@@ -21,7 +20,6 @@ import {
   TimelineConnector,
   TimelineContent,
 } from "@material-ui/lab";
-import theme from "@/Helpers/Themes";
 
 const style = (theme) => ({
   experienceCard: {
