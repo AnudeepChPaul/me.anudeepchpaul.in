@@ -1,23 +1,12 @@
 import React from "react";
 // import classes from "./Footer.module.scss";
-import {
-  faReact,
-  faLinkedin,
-  faFacebook,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import {
-  Container,
   Grid,
   Paper,
   TextField,
   withStyles,
   Typography,
-  TextareaAutosize,
   Button,
 } from "@material-ui/core";
 import clsx from "clsx";

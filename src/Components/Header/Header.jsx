@@ -1,49 +1,32 @@
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import React, { PropsWithChildren, ReactChildren } from "react";
+import React, {  } from "react";
 import { fetchAppData } from "@/Redux/actions/App.action";
-import { wrapper } from "@/Redux";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Typography,
   Button,
-  MenuItem,
-  Divider,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Drawer,
   CssBaseline,
-  Grid,
-  ButtonGroup,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import { withStyles, Theme } from "@material-ui/core/styles";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { List } from "immutable";
+import { withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import TimerIcon from "@material-ui/icons/TimerSharp";
 import InformationIcon from "@material-ui/icons/InfoSharp";
 import SkillsIcon from "@material-ui/icons/WorkOutlineSharp";
-import CloseIcon from "@material-ui/icons/CloseSharp";
 import MoneyIcon from "@material-ui/icons/MonetizationOnSharp";
 import PhoneIcon from "@material-ui/icons/PhoneCallbackRounded";
-import Me from "../Me/Me";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedinIn,
   faFacebookF,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon, Props } from "@fortawesome/react-fontawesome";
-import { StateFromReducersMapObject } from "redux";
-import { HeaderReduxState } from "@/Models/App";
-import { Container } from "next/app";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const drawerWidth = 120;
 
 const styles = (theme) => ({
   root: {
@@ -166,7 +149,7 @@ class Header extends React.Component {
             className={clsx(this.props.classes.menuToolbar)}
           >
             <Button component="div">
-              <Typography variant="h6">ACP</Typography>
+              <Typography variant="h6" color='textSecondary'>ACP</Typography>
             </Button>
             {this.props.header && this.getListOfLinks(this.props.header.list)}
           </Toolbar>

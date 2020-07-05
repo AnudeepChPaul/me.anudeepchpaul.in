@@ -7,6 +7,10 @@ import Header from "@/Components/Header/Header";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Skills from "@/Components/Skills/Skills";
+// import Experiences from "@/Components/Experiences/Experiences";
+// import Footer from "@/Components/Footer/Footer";
+// import Package from "@/Components/Package/Package";
+// import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
 import Helper from "@/Helpers/Helper";
 import dynamic from "next/dynamic";
 
@@ -18,14 +22,9 @@ const styles = () => ({
   },
 });
 
-
-const Experiences = dynamic(() =>
-  import("@/Components/Experiences/Experiences")
-);
+const Experiences = dynamic(() => import("@/Components/Experiences/Experiences"));
 const Footer = dynamic(() => import("@/Components/Footer/Footer"));
-const ProfessionalProjects = dynamic(() =>
-  import("@/Components/Projects/ProfessionalProjects")
-);
+const ProfessionalProjects = dynamic(() =>import("@/Components/Projects/ProfessionalProjects"));
 const Package = dynamic(() => import("@/Components/Package/Package"));
 
 class Home extends React.Component {
