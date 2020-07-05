@@ -18,6 +18,7 @@ const styles = () => ({
   },
 });
 
+
 const Experiences = dynamic(() =>
   import("@/Components/Experiences/Experiences")
 );
