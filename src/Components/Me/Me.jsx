@@ -188,10 +188,4 @@ class Me extends React.Component {
   }
 }
 
-export const getStaticProps = wrapper.getServerSideProps(async () => {
-  return {
-    props: {},
-  };
-});
-
 export default withStyles(styles)(Me);

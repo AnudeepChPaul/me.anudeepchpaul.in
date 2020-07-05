@@ -170,7 +170,7 @@ class Home extends React.Component {
   }
 }
 
-export const getStaticProps = wrapper.getServerSideProps(async (ctx) => {
+export const getStaticProps = wrapper.getStaticProps(async (ctx) => {
   const application = await ctx.store.dispatch(fetchAppData());
   return {
     props: {
