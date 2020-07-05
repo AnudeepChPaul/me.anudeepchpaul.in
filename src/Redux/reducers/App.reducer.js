@@ -1,5 +1,4 @@
 import { appState } from "@/Redux/actions/App.action";
-import { HeaderReduxState } from "@/Models/App";
 
 export const initialAppState = {
   title: 'null',

@@ -1,17 +1,10 @@
 import React from "react";
 import {
-  withStyles,
-  Paper,
-  CardContent,
   Grid,
   Typography,
   makeStyles,
-  Card,
-  Button,
-  Link,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { SkillReduxState } from "@/Models/Skills";
 
 const SkillsBar = function (props) {
   const classes = makeStyles((theme) => ({
