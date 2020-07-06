@@ -1,4 +1,4 @@
-import getClientDB from "@/Helpers/Db";
+import getClientDB from "@/Helpers/DB";
 
 export default async (req, res) => {
   return new Promise(async (resolve, reject) => {
