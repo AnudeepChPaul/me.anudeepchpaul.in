@@ -8,11 +8,11 @@ class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="A portal to check on Anudeep Chandra Paul's resume and skills."
+            content="A portal to check on Anudeep Chandra Paul's resume and skills. A serverless spa made by Anudeep Chandra Paul (ACP)."
           />
           <meta
             property="og:description"
-            content="A portal to check on Anudeep Chandra Paul's resume and skills."
+            content="A portal to check on Anudeep Chandra Paul's resume and skills. A serverless spa made by Anudeep Chandra Paul (ACP)."
           />
           <meta
             name="google-site-verification"
