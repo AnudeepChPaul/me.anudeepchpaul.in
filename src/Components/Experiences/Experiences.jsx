@@ -56,12 +56,10 @@ class Experiences extends React.Component {
   componentDidMount() {
     this.props.fetchExperiences();
 
-    // setTimeout(() => {
     Helper.subscribeToSW((event) => {
       event.data.experiences &&
         this.props.fetchExperienceDataFromSW(event.data);
     });
-    // }, 2000);
   }
 
   getExperienceBlocks() {
@@ -111,8 +109,6 @@ class Experiences extends React.Component {
         className={this.props.classes.experienceCard}
         elevation={0}
         square
-        onMouseMove={this.onMouseEnter}
-        onMouseOut={this.onMouseOut}
       >
         <CardContent className={this.props.classes.experienceCardContent}>
           <Grid container spacing={0}>

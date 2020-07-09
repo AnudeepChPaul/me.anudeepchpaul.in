@@ -10,12 +10,11 @@ import clsx from "clsx";
 
 const styles = (theme) => {
   const barHeight = 70;
-  const imageHeight = 150 - barHeight;
+  const imageHeight = 160 - barHeight;
   return {
     meCard: {
       // maxWidth: theme.spacing(150),
       backgroundColor: theme.palette.primary.main,
-      height: theme.spacing(imageHeight + barHeight),
       margin: theme.spacing(16, 0, 0),
       ...theme.mixins.toolbar,
     },

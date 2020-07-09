@@ -13,6 +13,8 @@ import Skills from "@/Components/Skills/Skills";
 // import ProfessionalProjects from "@/Components/Projects/ProfessionalProjects";
 import Helper from "@/Helpers/Helper";
 import dynamic from "next/dynamic";
+import { fetchSkills } from "@/Redux/actions/Skills.action";
+import { fetchExperiences } from "@/Redux/actions/Experiences.action";
 
 const styles = () => ({
   quickLinks: {
@@ -72,9 +74,9 @@ class Home extends React.Component {
           <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
             <ProfessionalProjects></ProfessionalProjects>
           </Grid>
-          <Grid item xs={12} ref={(node) => (this.packageRef = node)}>
+          {/* <Grid item xs={12} ref={(node) => (this.packageRef = node)}>
             <Package></Package>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} ref={(node) => (this.footerRef = node)}>
             <Footer></Footer>
           </Grid>
@@ -164,9 +166,13 @@ class Home extends React.Component {
 
 export const getStaticProps = wrapper.getStaticProps(async (ctx) => {
   const application = await ctx.store.dispatch(fetchAppData());
+  const skills = await ctx.store.dispatch(fetchSkills());
+  const experiences = await ctx.store.dispatch(fetchExperiences());
   return {
     props: {
       ...application,
+      ...skills,
+      ...experiences
     },
   };
 });

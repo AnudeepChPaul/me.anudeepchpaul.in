@@ -11,6 +11,10 @@ export const experienceReducer = (
   { type, payload }
 ) => {
   switch (type) {
+    case "__NEXT_REDUX_WRAPPER_HYDRATE__":
+      return Object.assign({}, state, {
+        ...payload.experiences
+      });
     case experienceStates.EXPERIENCE_DATA_LOAD_STARTED:
       return Object.assign({}, state, {
         ...payload,
