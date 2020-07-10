@@ -72,6 +72,10 @@ const style = (theme) => {
     },
     technologyLink: {
       cursor: "pointer",
+      border: 0,
+      borderBottomColor: "transparent",
+      borderStyle: "solid",
+      borderBottomWidth: "1px",
       "&:hover": {
         border: 0,
         borderBottomColor: "inherit",
@@ -99,7 +103,7 @@ const style = (theme) => {
   };
 };
 
-const projectTiles = (project, classes) => (
+const projectTiles = (project, classes, props) => (
   <AccordionDetails key={project.order}>
     <Paper className={classes.paperTiles} elevation={1}>
       <Typography
@@ -120,7 +124,7 @@ const projectTiles = (project, classes) => (
       <Typography variant="body1" className={classes.paperTilesSummary}>
         {project.techno_stack.map((el) => {
           return (
-            <span key={el.order}>
+            <span key={el.order} onClick={props.scrollToSkills}>
               <span className={classes.technologyLink}>{`${el.name}`}</span>
               {", "}
             </span>
@@ -154,15 +158,6 @@ class ProfessionalProjects extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // setTimeout(() => {
-    //   Helper.subscribeToSW((event) => {
-    //     event.data.experiences &&
-    //       this.props.fetchExperienceDataFromSW(event.data);
-    //   });
-    // }, 2000);
-  }
-
   getProfessionalProjects() {
     if (!this.props.experiences) {
       return <div></div>;
@@ -184,11 +179,17 @@ class ProfessionalProjects extends React.Component {
             aria-controls="panel1a-content"
             className={classes.projectPanel}
           >
-            <Typography className={classes.heading}>
+            <Typography
+              className={classes.heading}
+              className={classes.technologyLink}
+              onClick={(e) => (this.props.scrollToExp(), e.stopPropagation())}
+            >
               {company.companyName}
             </Typography>
           </AccordionSummary>
-          {company.projects?.map((project) => projectTiles(project, classes))}
+          {company.projects?.map((project) =>
+            projectTiles(project, classes, this.props)
+          )}
         </Accordion>
       );
     });

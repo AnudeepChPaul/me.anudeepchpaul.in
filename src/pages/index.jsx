@@ -24,9 +24,13 @@ const styles = () => ({
   },
 });
 
-const Experiences = dynamic(() => import("@/Components/Experiences/Experiences"));
+const Experiences = dynamic(() =>
+  import("@/Components/Experiences/Experiences")
+);
 const Footer = dynamic(() => import("@/Components/Footer/Footer"));
-const ProfessionalProjects = dynamic(() =>import("@/Components/Projects/ProfessionalProjects"));
+const ProfessionalProjects = dynamic(() =>
+  import("@/Components/Projects/ProfessionalProjects")
+);
 const Package = dynamic(() => import("@/Components/Package/Package"));
 
 class Home extends React.Component {
@@ -69,10 +73,17 @@ class Home extends React.Component {
             <Skills></Skills>
           </Grid>
           <Grid item xs={12} ref={(node) => (this.experiencesRef = node)}>
-            <Experiences></Experiences>
+            <Experiences
+              className={''}
+              scrollToProjects={() => this.doScrollToRefs("work_projects")}
+              scrollToExp={() => this.doScrollToRefs("experience")}
+            ></Experiences>
           </Grid>
           <Grid item xs={12} ref={(node) => (this.projectsRef = node)}>
-            <ProfessionalProjects></ProfessionalProjects>
+            <ProfessionalProjects
+              scrollToSkills={() => this.doScrollToRefs("skills")}
+              scrollToExp={() => this.doScrollToRefs("experience")}
+            ></ProfessionalProjects>
           </Grid>
           {/* <Grid item xs={12} ref={(node) => (this.packageRef = node)}>
             <Package></Package>
@@ -143,25 +154,7 @@ class Home extends React.Component {
       });
   }
 
-  onScroll() {
-    // this.timer && clearTimeout(this.timer);
-    // this.timer = setTimeout(() => {
-    //   if (document.scrollingElement.scrollTop > 180) {
-    //     return (
-    //       !this.state.fabButton.show &&
-    //       this.setState((state) => {
-    //         state.fabButton.show = true;
-    //         return state;
-    //       })
-    //     );
-    //   }
-    //   this.state.fabButton.show &&
-    //     this.setState((state) => {
-    //       state.fabButton.show = false;
-    //       return state;
-    //     });
-    // }, 50);
-  }
+  onScroll() {}
 }
 
 export const getStaticProps = wrapper.getStaticProps(async (ctx) => {
@@ -172,7 +165,7 @@ export const getStaticProps = wrapper.getStaticProps(async (ctx) => {
     props: {
       ...application,
       ...skills,
-      ...experiences
+      ...experiences,
     },
   };
 });

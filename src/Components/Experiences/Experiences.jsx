@@ -42,6 +42,12 @@ const style = (theme) => ({
   timelineListWrapper: {
     marginTop: theme.spacing(11),
   },
+  technologyLink: {
+    cursor: "pointer",
+    "&:hover": {
+      textDecoration: 'underline'
+    },
+  },
 });
 
 class Experiences extends React.Component {
@@ -86,7 +92,12 @@ class Experiences extends React.Component {
             >
               {`${Helper.convertDate(from)} to ${Helper.convertDate(to)}`}
             </Typography>
-            <Typography color="textSecondary" variant="body1">
+            <Typography
+              color="textSecondary"
+              variant="body1"
+              className={this.props.classes.technologyLink}
+              onClick={this.props.scrollToProjects}
+            >
               {experience.companyName}
             </Typography>
             <Typography color="textSecondary" variant="caption">
@@ -105,11 +116,7 @@ class Experiences extends React.Component {
     }
     /* debugger */
     return (
-      <Paper
-        className={this.props.classes.experienceCard}
-        elevation={0}
-        square
-      >
+      <Paper className={this.props.classes.experienceCard} elevation={0} square>
         <CardContent className={this.props.classes.experienceCardContent}>
           <Grid container spacing={0}>
             <Grid item xs={12}>
